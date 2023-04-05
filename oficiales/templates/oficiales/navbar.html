@@ -1,0 +1,42 @@
+{% load static %}
+<header class="main__header">
+    <ul class="main__header-logos">
+      <li class="item logos">
+        <img src="{% static 'oficiales/images/ifaf_logo_nbg.webp' %}" alt="IFAF_logo">
+      </li>
+      <li class="item logos">
+        <img src="{% static 'oficiales/images/logo_dafaa_nbg.webp' %}" alt="DAFAA_logo">
+      </li>
+      <li class="item title">
+        <h1 class="main__header-title">Oficiales FAArg</h1>
+      </li>
+      <li class="item logos">
+        <img src="{% static 'oficiales/images/faba_logo.webp' %}" alt="FABA_logo">
+      </li>
+      <li class="item logos">
+        <img src="{% static 'oficiales/images/faarg_logo.webp' %}" alt="FAARG_logo">
+      </li>
+    </ul>
+    <navbar class="nav_links">
+      <ul class="nav_links-list">
+        <li class="list_item">
+          <i class="fa-solid fa-bars"></i>
+        </li>
+        <li class="list_item">
+          <a class="list_item-link" href="{% url 'home' %}">Home</a>
+        </li>
+        <li class="list_item">
+          <a class="list_item-link" href="{% url 'inscription' %}">Inscripcion</a>
+        </li>
+        <li class="list_item">
+          <a class="list_item-link" href="">Descargas</a>
+        </li>
+      </ul>
+      <div class="user-links">
+        <ul class="nav_links-list">
+            <li class="list_item">Hello</li>
+            <li class="list_item"><a href="">Logout</a></li>
+        </ul>
+    </div>
+    </navbar>
+</header>

@@ -1,0 +1,145 @@
+{% extends 'oficiales/of_main.html' %}
+
+{% load static %}
+
+{% block content %}
+
+
+    <!-- Header of the Survey Form -->
+    <header class="insc_form">
+        <h1>Departamento de Árbitros Football Americano Argentina</h1>
+        <p>Formulario de Inscripción para el curso de Árbitros de Football Americano</p>
+        <p>FAA - Football Americano Argentina</p>
+    </header>
+
+    <!-- Main that contains the survey form -->
+    <main class="insc_form-container">
+        <section class="insc_form-info">
+            <p>Bienvenido al formulario de inscripción para el Curso de Oficiales del Departamento de Oficiales de Football Americano Argentina. Agradecemos tu interés en sumarte a nuestro equipo de trabajo.</p>
+            
+            <p>Te solicitamos responder todas las preguntas con la mayor responsabilidad y sinceridad posible. Asimismo, completá el formulario una sola vez para evitar lecturas erróneas o imprecisas.
+
+            <p>Completar este formulario no implica acreditación en el Curso de Oficiales 2020. Nuestro staff se pondrá en contacto con vos a fin de validar tus datos y confirmar tu deseo de sumarte a nuestro equipo.</p>
+
+            <p>Agradecemos de antemano tu colaboración.</p>
+        </section>
+
+        <!-- Survey Form -->
+        <form action="#" method="GET" id="survey-form" class="insc_form-survey">
+            
+            <!-- Personal Info -->
+            <div class="personal_info">
+                <h3>Datos Personales</h3>
+
+                <label for="name" id="name-label">Nombre</label>
+                <input type="text" id="name" name="name" placeholder="Ingrese Nombre" required>
+                <label for="surname">Apellido</label>
+                <input type="text" id="surname" name="surname" placeholder="Ingrese Apellido">
+                <label for="email" id="email-label">Email</label>
+                <input type="email" id="email" name="email" placeholder="johndoe@mail.com" required>
+                <label for="number" id="number-label">Edad</label>
+                <input type="number" id="number" name="number" min="2" max="2" placeholder="Edad" required>
+            </div>
+            
+            <!-- Rules knowledge INFO -->
+            <div class="rules_knowledge">
+                <!-- Select Item -->
+                <div class="select_item">
+                    <h3>Sobre el Curso de Oficiales</h3>
+                    
+                    <p>¿Cómo te enteraste del Curso de Oficiales?</p>
+                    <select name="contacto" id="dropdown">
+                        <option value="none">---</option>
+                        <option value="Web FAA">Web FAA</option>
+                        <option value="Facebook">Facebook</option>
+                        <option value="Instagram">Instagram</option>
+                        <option value="Twitter">Twitter</option>
+                        <option value="Other">Otro</option>
+                    </select>
+                </div>
+                
+                <!-- Radio Item -->
+                <div class="radio_item">
+                    <p>¿Qué set de reglas conocés?</p>
+                    <label for="rules">
+                        <input type="checkbox" id="rules" name="rules" value="NFL">
+                    NFL</label>
+                    <label for="rules">
+                        <input type="checkbox" id="rules" name="rules" value="AAF">
+                    AAF</label>
+                    <label for="rules">
+                        <input type="checkbox" id="rules" name="rules" value="NCAA">
+                    NCAA</label>
+                    <label for="rules">
+                        <input type="checkbox" id="rules" name="rules" value="IFAF">
+                    IFAF</label>
+                    <label for="rules">
+                        <input type="checkbox" id="rules" name="rules" value="NFHSL">
+                    NFHSL</label>
+                </div>
+                
+                <!-- Checkbox Item -->
+                <div class="checkbox_item">
+                    <p>¿Qué nivel de entendimiento del juego considerás que tenés?</p>
+                    <label for="rules_knowledge">
+                        <input type="radio" id="rules_knowledge" name="none" value="ninguno">
+                    Ninguno</label>
+                    <label for="rules_knowledge">
+                        <input type="radio" id="rules_knowledge" name="basic" value="básico">
+                    Básico</label>
+                    <label for="rules_knowledge">
+                        <input type="radio" id="rules_knowledge" name="regular" value="regular">
+                    Regular</label>
+                    <label for="rules_knowledge">
+                        <input type="radio" id="rules_knowledge" name="good" value="bueno">
+                    Bueno</label>
+                    <label for="rules_knowledge">
+                        <input type="radio" id="rules_knowledge" name="very_good" value="muy_bueno">
+                    Muy Bueno</label>
+                    <label for="rules_knowledge">
+                        <input type="radio" id="rules_knowledge" name="excelent" value="excelente">
+                    Excelente</label>
+                </div>
+                
+                
+                <div class="checkbox_item">
+                    <p>¿Qué nivel de conocimiento de las reglas considerás que tenés?</p>
+                    <label for="rules_knowledge2">
+                        <input type="radio" id="rules_knowledge2" name="none" value="ninguno">
+                    Ninguno</label>
+                    <label for="rules_knowledge2">
+                        <input type="radio" id="rules_knowledge2" name="basic" value="básico">
+                    Básico</label>
+                    <label for="rules_knowledge2">
+                        <input type="radio" id="rules_knowledge2" name="regular" value="regular">
+                    Regular</label>
+                    <label for="rules_knowledge2">
+                        <input type="radio" id="rules_knowledge2" name="good" value="bueno">
+                    Bueno</label>
+                    <label for="rules_knowledge2">
+                        <input type="radio" id="rules_knowledge2" name="very_good" value="muy_bueno">
+                    Muy Bueno</label>
+                    <label for="rules_knowledge2">
+                        <input type="radio" id="rules_knowledge2" name="excelent" value="excelente">
+                    Excelente</label>
+                </div>
+
+                <!-- Textarea Item -->
+                <div class="textarea_item">
+                    <p>¿Querés compartir algo más con nosotros?</p>
+                    <textarea name="info" id="info" cols="30" rows="10" placeholder="Si tiene dudas o quiere comentar algo más..."></textarea>
+                </div>
+            </div>
+            <button id="submitBtn" class="submit-btn">Enviar</button>
+        </form>
+
+        <!-- Footer link to FAA -->
+        <footer>
+            <p>Puedes visitar la Web de <a href="http://faarg.com.ar/" target="_blank" rel="noreferrer">Football Americano Argentina</a></p>
+        </footer>
+    </main>
+
+    
+
+
+{% endblock %}

@@ -1,0 +1,62 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- SEO Meta -->
+    <meta name="description" content="Página de inscripción para el curso de Oficiales de Football Americano Argentina">
+    <meta name="keywords" content="Argentina, Football, Americano, NFL, NCAA, Flag, Oficiales, Referee, arbitro">
+    <meta name="author" content="Galasso, Ignacio">
+    <!-- Meta for TWITTER and OPEN GRAPH -->
+    <meta property="og-title" content="Oficiales FABA (Faarg)" />
+    <meta property="og-type" content="website" />
+    <meta property="og-url" content="" />
+    <meta property="og-image" content="" />
+    <meta property="og-description" content="Página de inscripción para el curso de Oficiales de Football Americano Argentina" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:creator" content="@galasso22">
+    <meta name="twitter:title" content="Oficiales FABA (Faarg)" />
+    <meta name="twitter:description" content="Página de inscripción para el curso de Oficiales de Football Americano    Argentina" />
+    <meta name="twitter:image" content="" />
+    <!-- STYLE SHEET -->
+    <link rel="stylesheet" href="{% static 'oficiales/css/style.css' %}">
+    <!-- ICONS -->
+    <link rel="shortcut icon" href="{% static 'oficiales/images/icons/48px_icon.png' %}" type="image/png">
+    <link rel="apple-touch-icon" href="{% static 'oficiales/images/icons/48px_icon.png' %}">
+    <link rel="apple-touch-startup-image" href="{% static 'oficiales/images/icons/48px_icon.png' %}">
+    <link rel="apple-touch-icon" sizes="16x16" href="{% static 'oficiales/images/icons/16px_icon.png' %}">
+    <link rel="apple-touch-icon" sizes="32x32" href="{% static 'oficiales/images/icons/32px_icon.png' %}">
+    <link rel="apple-touch-icon" sizes="64x64" href="{% static 'oficiales/images/icons/64px_icon.png' %}">
+    <link rel="apple-touch-icon" sizes="128x128" href="{% static 'oficiales/images/icons/128px_icon.png' %}">
+    <link rel="apple-touch-icon" sizes="144x144" href="{% static 'oficiales/images/icons/144px_icon.png' %}">
+    <link rel="apple-touch-icon" sizes="192x192" href="{% static 'oficiales/images/icons/192px_icon.png' %}">
+    <link rel="apple-touch-icon" sizes="256x256" href="{% static 'oficiales/images/icons/256px_icon.png' %}">
+    <link rel="apple-touch-icon" sizes="512x512" href="{% static 'oficiales/images/icons/512px_icon.png' %}">
+    <link rel="apple-touch-icon" sizes="1024x1024" href="{% static 'oficiales/images/icons/1024px_icon.png' %}">
+    <link rel="icon" type="image/png" sizes="192x192"  href="{% static 'oficiales/images/icons/192px_icon.png' %}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'oficiales/images/icons/32px_icon.png' %}">
+    <link rel="icon" type="image/png" sizes="128x128" href="{% static 'oficiales/images/icons/128px_icon.png' %}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'oficiales/images/icons/16px_icon.png' %}">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="{% static 'oficiales/images/icons/144px_icon.png' %}">
+    <script src="https://kit.fontawesome.com/ef268928f6.js" crossorigin="anonymous"></script>
+    <title>Oficiales Faarg</title>
+</head>
+<body>
+    {% comment %}  HEADER / NAVBAR START {% endcomment %}
+    {% include 'oficiales/navbar.html' %}
+
+    {% comment %} PAGE CONTENT START {% endcomment %}
+    {% block content %}
+
+
+    {% endblock %}
+
+    {% comment %} FOOTER {% endcomment %}
+    {% include 'oficiales/footer.html' %}
+
+    <script type="text/javascript" src="{% static 'oficiales/js/scripts.js' %}"></script>
+</body>
+</html>
