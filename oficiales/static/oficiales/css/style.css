@@ -45,8 +45,8 @@ img {
 
 a {
   text-decoration: none;
-  color: rgba(1, 47, 72, 1);
-  filter: drop-shadow(.1rem .1rem .5rem rgba(1, 47, 72, 1));
+  color: var(--mainBlue);
+  filter: drop-shadow(.1rem .1rem .5rem var(--mainBlue));
 }
 
 body {
@@ -155,6 +155,10 @@ body {
 
   .main__header {
     width: 80%;
+  }
+  
+  .main__header-title {
+    letter-spacing: var(--mainSpacing);
   }
 
 }
@@ -648,7 +652,7 @@ label {
 }
 
 /* === MAIN CONTAINER === */
-.insc_form-container {
+.main__container {
   padding: .5rem;
   display: flex;
   flex-direction: column;
@@ -661,12 +665,173 @@ label {
 }
 
 /* === FORM SURVEY === */
+.insc_form-survey {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  width: 40rem;
+}
+
+.insc_form-survey h3 {
+  margin: 1.5rem 0 1rem;
+  font-size: 1.5rem;
+  letter-spacing: var(--mainSpacing);
+}
+
+.insc_form-personal-info label,
+.checkbox_item label,
+.radio_item label {
+  display: flex;
+  font-size: 1.2rem;
+  align-items: center;
+  letter-spacing: var(--mainSpacing);
+}
+
+.insc_form-personal-info input {
+  width: 30rem;
+  border-radius: .4rem;
+  border: none;
+  box-shadow: .1rem .1rem .2rem rgba(0, 0, 0,1);
+  padding: .5rem;
+  margin-bottom: 1rem;
+  outline: none;
+}
+
+input[type=number] {
+  width: 6rem;
+}
+
+.insc_form-personal-info input:focus {
+  background-color: rgba(119,181,216,0.3);
+  border: .1rem solid var(--lightBlue);
+}
+
+.insc_form-rules-knowledge p {
+  font-size: 1.2rem;
+  font-weight: bold;
+  letter-spacing: var(--mainSpacing);
+}
+
+.insc_form-rules-knowledge select {
+  width: 15rem;
+  padding: .5rem;
+}
+
+.textarea_item textarea {
+  width: 40rem;
+  height: 10rem;
+  padding: .5rem;
+  border-radius: .5rem;
+  margin-bottom: 2rem;
+  resize: none;
+}
+
+.submit-btn {
+  align-self: center;
+  margin-bottom: 2rem;
+  cursor: pointer;
+  transition: var(--mainTransition);
+}
+
+.submit-btn:hover {
+  background-color: var(--mainBlue);
+  color: var(--mainWhite);
+}
+
 @media screen and (min-width: 1024px) {
   
   .insc_form-container {
+    
     width: 80%;
+  }
+
+  .insc_form-survey {
+    width: 100%;
+    margin: 1.5rem auto;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .insc_form-rules-knowledge {
+    order: -1;
+    flex-basis: 50rem;
+  }
+  
+  .textarea_item textarea {
+    width: 90%;
+    height: 15rem;
+  }
+
+  .submit-btn {
+    order: -1;
+    align-self: flex-end;
   }
 
 }
 
 /* ===== INSCRIPTION FORM END ===== */
+
+
+/* ===== NEW RECRUITS TABLE START ===== */
+.table_container {
+  margin: .3rem .5rem;
+  overflow-x: scroll;
+  width: 100%
+}
+.table {
+  width: 100%;
+}
+
+.table, th, td, tr {
+  display: block;
+}
+
+.table caption {
+  font-size: 2rem;
+  background-color: var(--intermediateBlue);
+}
+
+.table tr {
+  border: .1rem solid var(--mainBlue);
+  border-collapse: collapse;
+}
+
+
+@media screen and (min-width: 40rem) {
+  
+  .table th, td {
+    padding: .5rem;
+  }
+
+  .table tr {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .table {
+    width: 40rem;
+  }
+
+  .table thead {
+    display: none;
+  }
+
+  .table td[data-title] {
+    display: flex;
+  }
+
+  td[data-title]::before {
+    content: attr(data-title);
+    width: 9rem;
+    font-weight: bold;
+    font-variant: small-caps;
+    padding-left: 2rem;
+  }
+
+  .table tr:hover {
+    background-color: var(--lightBlue);
+    cursor: pointer;
+  }
+}
+
+/* ===== NEW RECRUITS TABLE  END ===== */
