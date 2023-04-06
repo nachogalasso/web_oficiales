@@ -1,6 +1,8 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 
+from .models import *
+
 # Create your views here.
 # Aqui van las functions que permiten navegar por los distintos templates
 def home(request):
@@ -22,6 +24,10 @@ def inscriptionPage(request):
 def inscFormPage(request):
     return render(request, 'oficiales/of_insc_form.html');
 
+
+def newRecruits(request):
+    newRecruits = NewRecruits.objects.all()
+    return render(request, 'oficiales/of_newrecruits.html', {'newRecruits': newRecruits})
 
 
 

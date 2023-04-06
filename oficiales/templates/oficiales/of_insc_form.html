@@ -13,7 +13,7 @@
     </header>
 
     <!-- Main that contains the survey form -->
-    <main class="insc_form-container">
+    <main class="main__container">
         <section class="insc_form-info">
             <p>Bienvenido al formulario de inscripción para el Curso de Oficiales del Departamento de Oficiales de Football Americano Argentina. Agradecemos tu interés en sumarte a nuestro equipo de trabajo.</p>
             
@@ -25,10 +25,10 @@
         </section>
 
         <!-- Survey Form -->
-        <form action="#" method="GET" id="survey-form" class="insc_form-survey">
+        <form action="#" method="POST" id="survey-form" class="insc_form-survey">
             
             <!-- Personal Info -->
-            <div class="personal_info">
+            <section class="insc_form-personal-info">
                 <h3>Datos Personales</h3>
 
                 <label for="name" id="name-label">Nombre</label>
@@ -38,11 +38,11 @@
                 <label for="email" id="email-label">Email</label>
                 <input type="email" id="email" name="email" placeholder="johndoe@mail.com" required>
                 <label for="number" id="number-label">Edad</label>
-                <input type="number" id="number" name="number" min="2" max="2" placeholder="Edad" required>
-            </div>
+                <input type="number" id="number" name="number" min="0" max="99">
+            </section>
             
             <!-- Rules knowledge INFO -->
-            <div class="rules_knowledge">
+            <section class="insc_form-rules-knowledge">
                 <!-- Select Item -->
                 <div class="select_item">
                     <h3>Sobre el Curso de Oficiales</h3>
@@ -58,85 +58,85 @@
                     </select>
                 </div>
                 
-                <!-- Radio Item -->
-                <div class="radio_item">
-                    <p>¿Qué set de reglas conocés?</p>
-                    <label for="rules">
-                        <input type="checkbox" id="rules" name="rules" value="NFL">
-                    NFL</label>
-                    <label for="rules">
-                        <input type="checkbox" id="rules" name="rules" value="AAF">
-                    AAF</label>
-                    <label for="rules">
-                        <input type="checkbox" id="rules" name="rules" value="NCAA">
-                    NCAA</label>
-                    <label for="rules">
-                        <input type="checkbox" id="rules" name="rules" value="IFAF">
-                    IFAF</label>
-                    <label for="rules">
-                        <input type="checkbox" id="rules" name="rules" value="NFHSL">
-                    NFHSL</label>
-                </div>
-                
                 <!-- Checkbox Item -->
                 <div class="checkbox_item">
+                    <p>¿Qué set de reglas conocés?</p>
+                    <label for="rules">
+                        <input type="checkbox" id="rules-nfl" name="rules-nfl" value="NFL">
+                    NFL</label>
+                    <label for="rules">
+                        <input type="checkbox" id="rules-aaf" name="rules-aaf" value="AAF">
+                    AAF</label>
+                    <label for="rules">
+                        <input type="checkbox" id="rules-ncaa" name="rules-ncaa" value="NCAA">
+                    NCAA</label>
+                    <label for="rules">
+                        <input type="checkbox" id="rules-ifaf" name="rules-ifaf" value="IFAF">
+                    IFAF</label>
+                    <label for="rules">
+                        <input type="checkbox" id="rules-nfhsl" name="rules-nfhsl" value="NFHSL">
+                    NFHSL</label>
+                    <label for="rules">
+                        <input type="checkbox" id="rules-xfl" name="rules-xfl" value="XFL">
+                    XFL</label>
+                </div>
+                
+                <!-- Radio Item -->
+                <div class="radio_item">
                     <p>¿Qué nivel de entendimiento del juego considerás que tenés?</p>
                     <label for="rules_knowledge">
-                        <input type="radio" id="rules_knowledge" name="none" value="ninguno">
+                        <input type="radio" id="rknowledge-ninguno" name="rules_knowledge" value="ninguno">
                     Ninguno</label>
                     <label for="rules_knowledge">
-                        <input type="radio" id="rules_knowledge" name="basic" value="básico">
+                        <input type="radio" id="rknowledge-basico" name="rules_knowledge" value="básico">
                     Básico</label>
                     <label for="rules_knowledge">
-                        <input type="radio" id="rules_knowledge" name="regular" value="regular">
+                        <input type="radio" id="rknowledge-regular" name="rules_knowledge" value="regular">
                     Regular</label>
                     <label for="rules_knowledge">
-                        <input type="radio" id="rules_knowledge" name="good" value="bueno">
+                        <input type="radio" id="rknowledge-bueno" name="rules_knowledge" value="bueno">
                     Bueno</label>
                     <label for="rules_knowledge">
-                        <input type="radio" id="rules_knowledge" name="very_good" value="muy_bueno">
+                        <input type="radio" id="rknowledge-mb" name="rules_knowledge" value="muy_bueno">
                     Muy Bueno</label>
                     <label for="rules_knowledge">
-                        <input type="radio" id="rules_knowledge" name="excelent" value="excelente">
+                        <input type="radio" id="rknowledge-exc" name="rules_knowledge" value="excelente">
                     Excelente</label>
                 </div>
                 
                 
-                <div class="checkbox_item">
+                <div class="radio_item">
                     <p>¿Qué nivel de conocimiento de las reglas considerás que tenés?</p>
                     <label for="rules_knowledge2">
-                        <input type="radio" id="rules_knowledge2" name="none" value="ninguno">
+                        <input type="radio" id="rknowledge-ninguno2" name="rules_knowledge2" value="ninguno">
                     Ninguno</label>
                     <label for="rules_knowledge2">
-                        <input type="radio" id="rules_knowledge2" name="basic" value="básico">
+                        <input type="radio" id="rknowledge-basico2" name="rules_knowledge2" value="básico">
                     Básico</label>
                     <label for="rules_knowledge2">
-                        <input type="radio" id="rules_knowledge2" name="regular" value="regular">
+                        <input type="radio" id="rknowledge-regular2" name="rules_knowledge2" value="regular">
                     Regular</label>
                     <label for="rules_knowledge2">
-                        <input type="radio" id="rules_knowledge2" name="good" value="bueno">
+                        <input type="radio" id="rknowledge-bueno2" name="rules_knowledge2" value="bueno">
                     Bueno</label>
                     <label for="rules_knowledge2">
-                        <input type="radio" id="rules_knowledge2" name="very_good" value="muy_bueno">
+                        <input type="radio" id="rknowledge-mb2" name="rules_knowledge2" value="muy_bueno">
                     Muy Bueno</label>
                     <label for="rules_knowledge2">
-                        <input type="radio" id="rules_knowledge2" name="excelent" value="excelente">
+                        <input type="radio" id="rknowledge-exc2" name="rules_knowledge2" value="excelente">
                     Excelente</label>
                 </div>
 
                 <!-- Textarea Item -->
                 <div class="textarea_item">
                     <p>¿Querés compartir algo más con nosotros?</p>
-                    <textarea name="info" id="info" cols="30" rows="10" placeholder="Si tiene dudas o quiere comentar algo más..."></textarea>
+                    <textarea name="info" id="info" placeholder="Alguna duda, inquietud o comentario?..."></textarea>
                 </div>
-            </div>
-            <button id="submitBtn" class="submit-btn">Enviar</button>
+            </section>
+            <input type="submit" id="submitBtn" class="submit-btn btns" value="Enviar"></input>
         </form>
 
-        <!-- Footer link to FAA -->
-        <footer>
-            <p>Puedes visitar la Web de <a href="http://faarg.com.ar/" target="_blank" rel="noreferrer">Football Americano Argentina</a></p>
-        </footer>
+        
     </main>
 
     
