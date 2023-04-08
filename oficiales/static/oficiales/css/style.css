@@ -653,10 +653,11 @@ label {
 
 /* === MAIN CONTAINER === */
 .main__container {
+  margin: 2rem auto;
   padding: .5rem;
   display: flex;
   flex-direction: column;
-  width: 100%;
+  width: 80%;
 }
 
 .insc_form-info {
@@ -741,7 +742,6 @@ input[type=number] {
 @media screen and (min-width: 1024px) {
   
   .insc_form-container {
-    
     width: 80%;
   }
 
@@ -773,17 +773,14 @@ input[type=number] {
 
 
 /* ===== NEW RECRUITS TABLE START ===== */
-.table_container {
-  margin: .3rem .5rem;
-  overflow-x: scroll;
-  width: 100%
-}
-.table {
-  width: 100%;
+.main__container h5 {
+  font-size: 2rem;
+  margin: .5rem 0;
 }
 
-.table, th, td, tr {
-  display: block;
+.table_container {
+  margin: 2rem 0;
+  width: 100%;
 }
 
 .table caption {
@@ -791,21 +788,47 @@ input[type=number] {
   background-color: var(--intermediateBlue);
 }
 
-.table tr {
-  border: .1rem solid var(--mainBlue);
+.table tr, th, td {
+  /* border: .1rem solid var(--mainBlue); */
   border-collapse: collapse;
 }
 
+.table th, td {
+  padding: .5rem .8rem;
+}
 
-@media screen and (min-width: 40rem) {
+.table th {
+  font-size: 1.5rem;
+  font-variant: small-caps;
+}
+
+.table tr:nth-child(even) {
+  background-color: var(--lightBlue);
+}
+
+.table tr:hover {
+  background-color: var(--intermediateBlue);
+  cursor: pointer;
+}
+
+
+@media screen and (max-width: 768px) {
   
-  .table th, td {
-    padding: .5rem;
+  .main__container {
+    width: 100%;
   }
 
   .table tr {
     display: flex;
     flex-direction: column;
+    border: .1rem solid var(--mainBlue);
+    padding: .5rem;
+    background-color: var(--mainWhite);
+  }
+
+  .table, th, td {
+    border: none;
+    background-color: var(--mainWhite);
   }
 
   .table {
@@ -822,16 +845,11 @@ input[type=number] {
 
   td[data-title]::before {
     content: attr(data-title);
-    width: 9rem;
+    width: 10rem;
     font-weight: bold;
     font-variant: small-caps;
-    padding-left: 2rem;
   }
 
-  .table tr:hover {
-    background-color: var(--lightBlue);
-    cursor: pointer;
-  }
 }
 
 /* ===== NEW RECRUITS TABLE  END ===== */

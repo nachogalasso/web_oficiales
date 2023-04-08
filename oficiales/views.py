@@ -6,7 +6,13 @@ from .models import *
 # Create your views here.
 # Aqui van las functions que permiten navegar por los distintos templates
 def home(request):
-    return render(request, 'oficiales/of_main.html');
+    # Esta es la web que hace de dashboard para saber los inscriptos y los oficiales disponibles
+    newRecruits = NewRecruits.objects.all()
+    oficials = Oficiales.objects.all()
+    
+    # Recordar que el context lo utilizamos para colocar todos los models y datos que estamos referenciando
+    context = {'newRecruits': newRecruits, 'oficials': oficials}
+    return render(request, 'oficiales/of_main.html', context);
 
 def landing_page(request):
     return render(request, 'oficiales/of_incrispcion.html');

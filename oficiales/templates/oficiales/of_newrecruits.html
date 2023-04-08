@@ -20,12 +20,24 @@
                     <th>Entendimiento del Juego</th>
                     <th>Conocimiento del Juego</th>
                     <th>Comentarios</th>
+                    <th>Fecha inscripción</th>
                 </tr>
             </thead>
             <tbody>
+                {% for i in newRecruits %}
                 <tr>
-                    <td></td>
+                    <td data-title="Nombre">{{i.name}}</td>
+                    <td data-title="Apellido">{{i.surname}}</td>
+                    <td data-title="Email">{{i.email}}</td>
+                    <td data-title="edad">{{i.age}}</td>
+                    <td data-title="redes sociales">{{i.socialmedia}}</td>
+                    <td data-title="Entendimiento del juego">{{i.game}}</td>
+                    <td data-title="Conocimiento del juego">{{i.rules_knowledge}}</td>
+                    <td data-title="comentarios">{{i.message}}</td>
+                    <td data-title="fecha de inscripción">{{i.date_inscription}}</td>
                 </tr>
+
+                    {% endfor %}
             </tbody>
         </table>
     </div>
