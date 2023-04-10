@@ -51,62 +51,69 @@
     {% comment %} PAGE CONTENT START {% endcomment %}
     {% block content %}
 
-    <main class="dashboard-container">
+    <main class="container">
 
-        <section class="customers">
-            <h5 class="acc-title">Customers:</h5>
-            <div class="customers-section">
-                <a href="#"><button type="button"   class="co-btn">Create Customers</button></a>
-                {% comment %} <a href="#"   class="co-btn">Create Customers</a> {% endcomment %}
-                <table class="co-table">
-                    <tr>
-                        <th></th>
-                        <th>Customers</th>
-                        <th>Orders</th>
-                    </tr>
+        <!-- PHOTO SLIDE START -->
+        <section class="slide-container">
+          
+          <div class="loader"></div>
+          <figure class="slider box show">
+            <img class="slide" src="{% static 'oficiales/images/oficials4.webp' %}" alt="Imagen_oficiales1">
+          </figure>
+          <figure class="hidden slider box">
+            <img class="slide" src="{% static 'oficiales/images/oficials2.webp' %}" alt="Imagen_oficiales2">
+          </figure>
+          <figure class="hidden slider box">
+            <img class="slide" src="{% static 'oficiales/images/oficials.webp' %}" alt="Imagen_oficiales3">
+          </figure>
+          
+      </section>
+      <!-- PHOTO SLIDE END -->
     
-                    {% for customer in customers %}
-                        <tr>
-                            <td><a href="{% url 'customers' customer.id %}" class="btn">View</a></td>
-                            <td>{{ customer.name }}</td>
-                            <td>{{ customer.phone }}</td>
-                        </tr>
-                    {% endfor %}
+      <!-- INFORMATION START -->
+      <section class="accordion__info-container">
+        <button class="accordion__info-bar" id="slide-1">Sobre Nosotros</button>
+        <div class="info-bar-panel">
+          <p>Somos el cuerpo arbitral de Football Americano Argentina, cubrimos las competiciones de Football Tackle y de Flag Football de FABA (Football Americano Buenos Aires), a jugarse entre los meses de Marzo a Noviembre. Utilizamos los reglamentos de IFAF, puedes descargar la última actualización en los siguientes enlaces:
+          </p>
+          {% comment %} <div class="rulebook-links">
+            <a href="{% static 'oficiales/files/FlagRules2021.pdf' %}" class="rulebook" title="Descargar Flag Football" download>Flag Football <i class="fa-regular fa-file-pdf"></i></a>
+            <a href="{% static 'oficiales/files/ifafrules2023.pdf' %}" class="rulebook" title="Descargar Football Tackle" download>Football Tackle <i class="fa-regular fa-file-pdf"></i></a>
+          </div> {% endcomment %}
+        </div>
+        <button class="accordion__info-bar" id="slide-2">Torneos y Equipos</button>
+        <div class="info-bar-panel">
+          <p>La competición anual se compone de: </p>
+            <ul>
+                <li class="panel-item">
+                  2 Torneos de Flag Mayores
+                </li>
+                <li class="panel-item">
+                  1 Torneo de Tackle Mayores.
+                </li>
+                <li class="panel-item">
+                  El Torneo de FABA se compone de 6 equipos: Corsarios, Cruzados, Jabalies, Legionarios, Osos Polares y Tiburones.
+                </li>
+                <li class="panel-item">
+                  Las tazonizas, partidos entre los seleccionados de Buenos Aires, Córdoba y Rosario.
+                </li>
+            </ul>
+         
+        </div>
+        <button class="accordion__info-bar" id="slide-3">Inscripción</button>
+        <div class="info-bar-panel">
+          <p>Si estás interesado en formar parte del cuerpo arbitral te invitamos a realizar el curso de oficiales, dale click al enlace de abajo y completa el formulario de inscripción:</p>
+          <a href="{% url 'inscForm' %}" target="_blank" rel="noreferrer noopener" title="Ir al formulario de inscripción" class="form-link"> -> Formulario Inscripción <- </a>
+        </div>
     
-                </table>
-            </div>
-        </section>
+      </section>
+      <!-- INFORMATION END -->
     
+      </main>
     
-        <section class="orders">
-            <h5 class="acc-title">last 5 orders:</h5>
-            <div class="orders-section">
-                {% comment %} <a href="{% url 'create_order' %}"><button type="button"   class="co-btn">Create Orders</button><a> {% endcomment %}
-                {% comment %} <a href="{% url 'create_order' %}" class="co-btn">Create Orders</a> {% endcomment %}
-                <table class="co-table">
-                    <tr>
-                        <th>Product</th>
-                        <th>Date Ordered</th>
-                        <th>Status</th>
-                        <th>Update</th>
-                        <th>Remove</th>
-                    </tr>
+      <!-- MAIN END -->
+
     
-                    {% for order in orders %}
-                        <tr>
-                            <td>{{ order.product }}</td>
-                            <td>{{ order.date_created }}</td>
-                            <td>{{ order.status }}</td>
-                            <td><a class="btn btn-info" href="{% url 'update_order' order.id %}">Update</a></td>
-                            <td><a class="btn btn-danger" href="{% url 'delete_order' order.id %}">Delete</a></td>
-                        </tr>
-                    {% endfor %}
-                </table>
-            </div>
-        </section>
-    
-    
-    </main>
 
 
     {% endblock %}

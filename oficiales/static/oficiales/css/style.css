@@ -35,6 +35,8 @@ html:focus-within {
 *:before,
 *:after {
   box-sizing: inherit;
+  margin: 0;
+  padding: 0;
 }
 
 img {
@@ -153,10 +155,6 @@ body {
 
 @media screen and (min-width: 1024px) {
 
-  .main__header {
-    width: 80%;
-  }
-  
   .main__header-title {
     letter-spacing: var(--mainSpacing);
   }
@@ -476,7 +474,7 @@ body {
 
 /* ========== 3. FOOTER END ========== */
 
-/* ===== REGISTER FORM START ===== */
+/* ===== LOGIN FORM START ===== */
 
 /* ===== MAIN START ===== */
 .container {
@@ -531,7 +529,7 @@ body {
 }
 
 /* Labels */
-label {
+.form-section label {
   display: block;
   margin-bottom: .5rem;
 }
@@ -853,3 +851,101 @@ input[type=number] {
 }
 
 /* ===== NEW RECRUITS TABLE  END ===== */
+
+
+/* ===== AVAILABILITY  START  ===== */
+.btns_container {
+  display: flex;
+  justify-content: space-around;
+  margin: 1.5rem 0;
+  align-self: center;
+  width: 100%;
+}
+
+.tab-btn {
+  padding: .8rem 1rem;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  font-size: 1.5rem;
+  font-variant: small-caps;
+  width: 100%;
+}
+
+.tab-btn:hover {
+  background-color: var(--lightBlue);
+}
+
+.game-container {
+  width: 40rem;
+}
+
+.tab-content {
+  display: none;
+}
+
+.tab-content p {
+  margin: 0 0 .5rem;
+  padding-left: 1rem;
+  font-size: 1.2rem;
+  font-variant: small-caps;
+}
+
+.disp_form {
+  margin-bottom: 3rem;
+  padding: .8rem 0;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  border-top: .1rem solid var(--mainBlue);
+  border-bottom: .1rem solid var(--mainBlue);
+}
+
+.disp_form-games label, select {
+  font-size: 1.5rem;
+}
+
+.tab-content p {
+  margin: 0 0 .8rem;
+  padding: 0;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.disp-btn {
+  align-self: flex-end;
+  border: .1rem solid var(--mainWhite);
+  background-color: var(--mainBlue);
+  padding: .5rem .8rem;
+  cursor: pointer;
+  border-radius: .3rem;
+  color: var(--mainWhite);
+  transition: var(--mainTransition);
+}
+
+.disp-btn:hover {
+  background-color: var(--lightBlue);
+  border: .1rem solid var(--mainBlue);
+  color: var(--mainBlue);
+}
+
+@media screen and (min-width: 1024px) {
+
+  .game-container {
+    width: 80%;
+    margin: 0 auto;
+  }
+
+  .tab-btn {
+    font-size: 1.8rem;
+  }
+
+  .tab-content h3 {
+    text-align: center;
+    font-size: 1.8rem;
+  }
+  
+}
+
+/* ===== AVAILABILITY  END  ===== */
