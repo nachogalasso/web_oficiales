@@ -25,11 +25,17 @@
         <li class="list_item">
           <a class="list_item-link" href="{% url 'home' %}">Home</a>
         </li>
-        <li class="list_item">
+        {% comment %} <li class="list_item">
           <a class="list_item-link" href="{% url 'inscription' %}">Inscripcion</a>
-        </li>
+        </li> {% endcomment %}
         <li class="list_item">
           <a class="list_item-link" href="">Descargas</a>
+        </li>
+        <li class="list_item">
+          <a class="list_item-link" href="{% url 'dashboard' %}">Dashboard</a>
+        </li>
+        <li class="list_item">
+          <a class="list_item-link" href="{% url 'availability' %}">Disponibilidad</a>
         </li>
       </ul>
       <div class="user-links">

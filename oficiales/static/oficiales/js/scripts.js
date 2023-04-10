@@ -34,3 +34,20 @@ navBtn.forEach(btns => {
   })
 })
 
+// AVAILABILITY PAGE
+const btns = [...document.querySelectorAll('.tab-btn')]
+const forms = [...document.querySelectorAll('.tab-content')]
+
+forms[0].style.display = 'block'
+btns.forEach(item => {
+  item.addEventListener('click', () => {
+    const target = item.getAttribute('data-target');
+    forms.forEach(form => {
+      if (form.id === target) {
+        form.style.display = 'block';
+      }else{
+        form.style.display = 'none';
+      }
+    })
+  })
+})
