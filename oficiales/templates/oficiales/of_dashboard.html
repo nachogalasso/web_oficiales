@@ -4,56 +4,74 @@
 
 {% block content %}
 
-<main class="dashboard-container">
+{% comment %} {% include 'oficiales/status.html' %} {% endcomment %}
 
-    <section class="customers">
-        <h5 class="acc-title">Customers:</h5>
-        <div class="customers-section">
-            <a href="#"><button type="button"   class="co-btn">Create Customers</button></a>
+<main class="dashboard-container">
+    <div class="cards ">
+        <div class="card-header fCard">
+            <h5 class="co-title">Oficiales disponibles</h5>
+        </div>
+        <div class="card-body fbc">
+            <h5 class="co-title"></h5>
+        </div>
+    </div>
+    <section class="of_container">
+        
+        <h5 class="of_title">Oficiales confirmados</h5>
+        <div class="of_section">
+            {% comment %} <a href="#"><button type="button"   class="co-btn">Create Customers</button></a> {% endcomment %}
             {% comment %} <a href="#"   class="co-btn">Create Customers</a> {% endcomment %}
-            <table class="co-table">
+            <table class="dash_table">
                 <tr>
-                    <th></th>
-                    <th>Customers</th>
-                    <th>Orders</th>
+                    <th>Oficiales</th>
+                    <th>1er Partido</th>
+                    <th>2do Partido</th>
                 </tr>
 
-                {% for customer in customers %}
+                
                     <tr>
-                        <td><a href="{% url 'customers' customer.id %}" class="btn">View</a></td>
-                        <td>{{ customer.name }}</td>
-                        <td>{{ customer.phone }}</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
                     </tr>
-                {% endfor %}
+                
 
             </table>
         </div>
     </section>
 
+    <div class="cards ">
+        <div class="card-header sCard">
+            <h5 class="co-title">Total Inscriptos</h5>
+        </div>
+        <div class="card-body sbc">
+            <h5 class="co-title">{{delivered}}</h5>
+        </div>
+    </div>
 
-    <section class="orders">
-        <h5 class="acc-title">last 5 orders:</h5>
+    <section class="insc_container">
+        <h5 class="insc_title">Inscriptos</h5>
         <div class="orders-section">
             {% comment %} <a href="{% url 'create_order' %}"><button type="button"   class="co-btn">Create Orders</button><a> {% endcomment %}
             {% comment %} <a href="{% url 'create_order' %}" class="co-btn">Create Orders</a> {% endcomment %}
-            <table class="co-table">
+            <table class="dash_table">
                 <tr>
-                    <th>Product</th>
-                    <th>Date Ordered</th>
-                    <th>Status</th>
-                    <th>Update</th>
-                    <th>Remove</th>
+                    <th>Nombre</th>
+                    <th>Email</th>
+                    <th>Reglas</th>
+                    <th>Entendimiento</th>
+                    <th>Conocimiento</th>
                 </tr>
 
-                {% for order in orders %}
+                
                     <tr>
-                        <td>{{ order.product }}</td>
-                        <td>{{ order.date_created }}</td>
-                        <td>{{ order.status }}</td>
-                        <td><a class="btn btn-info" href="{% url 'update_order' order.id %}">Update</a></td>
-                        <td><a class="btn btn-danger" href="{% url 'delete_order' order.id %}">Delete</a></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
                     </tr>
-                {% endfor %}
+                
             </table>
         </div>
     </section>
