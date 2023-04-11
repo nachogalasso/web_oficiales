@@ -34,6 +34,14 @@ navBtn.forEach(btns => {
   })
 })
 
+// NAVBAR
+const toggleNavbtn = document.querySelector('.nav_links-btn');
+const navList = document.querySelector('.nav_links-list');
+
+toggleNavbtn.addEventListener('click', () => {
+  navList.classList.toggle('show_list');
+})
+
 // AVAILABILITY PAGE
 const btns = [...document.querySelectorAll('.tab-btn')]
 const forms = [...document.querySelectorAll('.tab-content')]

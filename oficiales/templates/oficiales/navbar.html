@@ -17,32 +17,42 @@
         <img src="{% static 'oficiales/images/faarg_logo.webp' %}" alt="FAARG_logo">
       </li>
     </ul>
-    <navbar class="nav_links">
-      <ul class="nav_links-list">
-        <li class="list_item">
-          <i class="fa-solid fa-bars"></i>
-        </li>
-        <li class="list_item">
-          <a class="list_item-link" href="{% url 'home' %}">Home</a>
-        </li>
-        {% comment %} <li class="list_item">
-          <a class="list_item-link" href="{% url 'inscription' %}">Inscripcion</a>
-        </li> {% endcomment %}
-        <li class="list_item">
-          <a class="list_item-link" href="">Descargas</a>
-        </li>
-        <li class="list_item">
-          <a class="list_item-link" href="{% url 'dashboard' %}">Dashboard</a>
-        </li>
-        <li class="list_item">
-          <a class="list_item-link" href="{% url 'availability' %}">Disponibilidad</a>
-        </li>
-      </ul>
-      <div class="user-links">
-        <ul class="nav_links-list">
-            <li class="list_item">Hello</li>
-            <li class="list_item"><a href="">Logout</a></li>
-        </ul>
-    </div>
-    </navbar>
+    
+
+    
 </header>
+<navbar class="nav_links">
+    <span class="nav_links-btn">
+      <i class="fa-solid fa-bars"></i>
+    </span>
+    <ul class="nav_links-list">
+      {% comment %} <li class="list_item nav_links-btn">
+      <i class="fa-solid fa-bars "></i>
+
+      </li> {% endcomment %}
+      <li class="list_item">
+        <a class="list_item-link" href="{% url 'home' %}">Home</a>
+      </li>
+      {% comment %} <li class="list_item">
+        <a class="list_item-link" href="{% url 'inscription' %}">Inscripcion</a>
+      </li> {% endcomment %}
+      <li class="list_item">
+        <a class="list_item-link" href="">Descargas</a>
+      </li>
+      <li class="list_item">
+        <a class="list_item-link" href="{% url 'dashboard' %}">Dashboard</a>
+      </li>
+      <li class="list_item">
+        <a class="list_item-link" href="{% url 'availability' %}">Disponibilidad</a>
+      </li>
+      <li class="list_item">
+          
+      </li>
+    </ul>
+    <div class="user-links">
+      <ul class="user_list">
+          <li class="list_item">Hello</li>
+          <li class="list_item"><a href="">Logout</a></li>
+      </ul>
+  </div>
+</navbar>
