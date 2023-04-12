@@ -5,6 +5,8 @@ from django.template import loader
 
 from .models import *
 
+from .forms import NewRecruitsForm
+
 # Create your views here.
 # Aqui van las functions que permiten navegar por los distintos templates
 def home(request):
@@ -40,14 +42,25 @@ def newRecruits(request):
 
 
 def dashboardPage(request):
-     # Esta es la web que hace de dashboard para saber los inscriptos y los oficiales disponibles
+     # Esta es la web que hace de dashboard para saber los inscriptos y los oficiales disponibles, traemos los modelos de
+     # reclutas y oficiales disponibles
     newRecruits = NewRecruits.objects.all()
     oficials = Oficiales.objects.all()
+    availability = Availability.objects.all()
+    
+    # Ahora creamos el contador para saber los que tenemos
+    total_newRecruits = newRecruits.count()
+    available = availability.filter(partido1='Si').count() + availability.filter(partido2='Si').count()
+    not_available = availability.filter(partido2='No').count() + availability.filter(partido2='No').count()
     
     # Recordar que el context lo utilizamos para colocar todos los models y datos que estamos referenciando
-    context = {'newRecruits': newRecruits, 'oficials': oficials}
+    context = {'newRecruits': newRecruits, 'oficials': oficials, 'total_newRecruits': total_newRecruits, 'available': available, 'not_available': not_available}
     return render(request, 'oficiales/of_dashboard.html', context)
 
+
+# CALENDAR PAGE
+def calendarPage(request):
+    return render(request, 'oficiales/calendar.html')
 
 
 

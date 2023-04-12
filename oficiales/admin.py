@@ -7,3 +7,4 @@ from .models import *
 admin.site.register(Oficiales)
 admin.site.register(NewRecruits)
 admin.site.register(Availability)
+admin.site.register(Calendar)

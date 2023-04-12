@@ -10,5 +10,5 @@ urlpatterns = [
     path('inscForm/', views.inscFormPage, name='inscForm'),
     path('newrecruits/', views.newRecruits, name='newRecruits'),
     path('dashboard/', views.dashboardPage, name='dashboard'),
-    # path('/', views.disp_form4, name='disp_form4'),
+    path('calendar/', views.calendarPage, name='calendar'),
 ]

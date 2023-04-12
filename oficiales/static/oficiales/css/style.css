@@ -1134,6 +1134,11 @@ input[type=number] {
     gap: 5rem;
   }
 
+  .oficial_cards {
+    display: flex;
+    gap: 5rem;
+  }
+
   .co-title {
     font-size: 1.6rem;
   }
@@ -1145,3 +1150,58 @@ input[type=number] {
 }
 
 /* ===== CARDS END ===== */
+
+/* ===== CALENDAR START ===== */
+.calendar_container {
+  margin: 2rem 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  max-width: 110rem;
+  gap: 1rem;
+}
+
+.cal_title {
+  width: 100%;
+  padding: 1rem 1.5rem;
+  font-size: 1.6rem;
+  border-bottom: .5rem solid var(--mainBlue);
+  background-color: var(--intermediateBlue);
+  color: var(--mainBlue);
+}
+
+.calendar_card {
+  display: flex;
+  flex-direction: column;
+  /* align-items: center; */
+  border: .1rem solid var(--mainBlue);
+  border-radius: .5rem;
+}
+
+.card_title {
+  padding: .5rem 0;
+  width: 100%;
+  text-align: center;
+  text-transform: capitalize;
+  font-size: 1.5rem;
+  border-bottom: .1rem solid var(--mainBlue);
+  background-color: var(--lightBlue);
+}
+
+.calendar_gamecard {
+  margin: 1rem auto;
+  width: 40rem;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.gamecard-team {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* ===== CALENDAR END ===== */
