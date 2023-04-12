@@ -7,14 +7,24 @@
 {% comment %} {% include 'oficiales/status.html' %} {% endcomment %}
 
 <main class="dashboard-container">
-    <div class="cards ">
-        <div class="card-header fCard">
-            <h5 class="co-title">Oficiales disponibles</h5>
+    <section class="oficial_cards">
+        <div class="cards ">
+            <div class="card-header fCard">
+                <h5 class="co-title">Oficiales disponibles</h5>
+            </div>
+            <div class="card-body fbc">
+                <h5 class="co-title">{{available}}</h5>
+            </div>
         </div>
-        <div class="card-body fbc">
-            <h5 class="co-title"></h5>
+        <div class="cards ">
+            <div class="card-header fCard">
+                <h5 class="co-title">Oficiales No disponibles</h5>
+            </div>
+            <div class="card-body fbc">
+                <h5 class="co-title">{{not_available}}</h5>
+            </div>
         </div>
-    </div>
+    </section>
     <section class="of_container">
         
         <h5 class="of_title">Oficiales confirmados</h5>
@@ -28,14 +38,17 @@
                     <th>2do Partido</th>
                 </tr>
 
-                
+                {% for oficial in oficials %}
+
                     <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <td>{{oficial.name}}</td>
+                        <td>{{oficial.game1}}</td>
+                        <td>{{oficial.game2}}</td>
+                        <td><a class="btn btn-info" href="">Update</a></td>
+                        <td><a class="btn btn-danger" href="">Delete</a></td>
                     </tr>
                 
-
+                    {% endfor %}
             </table>
         </div>
     </section>
@@ -45,7 +58,7 @@
             <h5 class="co-title">Total Inscriptos</h5>
         </div>
         <div class="card-body sbc">
-            <h5 class="co-title">{{delivered}}</h5>
+            <h5 class="co-title">{{total_newRecruits}}</h5>
         </div>
     </div>
 
@@ -63,14 +76,17 @@
                     <th>Conocimiento</th>
                 </tr>
 
-                
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
+                {% for recruits in newRecruits %}
+
+                <tr>
+                    <td>{{recruits.name}}</td>
+                    <td>{{recruits.email}}</td>
+                    <td>{{recruits.rules}}</td>
+                    <td>{{recruits.game}}</td>
+                    <td>{{recruits.rules_knowledge}}</td>
+                </tr>
+
+                {% endfor %}
                 
             </table>
         </div>

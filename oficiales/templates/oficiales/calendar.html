@@ -1,0 +1,29 @@
+{% extends 'oficiales/of_main.html' %}
+
+{% load static %}
+
+
+{% block content %}
+
+<main class="calendar_container">
+    <h3 class="cal_title">Calendario</h3>
+    <section class="calendar_card">
+        <h4 class="card_title">fecha</h4>
+        <div class="calendar_gamecard">
+            <div class="gamecard-team">
+                <p>Cruzados</p>
+                <img loading="lazy" src="{% static 'oficiales/images/icons/cruzados_logo.png' %}" alt="logo_cruzados">
+            </div>
+            <p>VS</p>
+            <div class="gamecard-team">
+                <p>Jabalies</p>
+                <img loading="lazy" src="{% static 'oficiales/images/icons/jabalies_logo.png' %}" alt="logo_jabalies">
+            </div>
+        </div>
+
+    </section>
+
+</main>
+
+
+{% endblock %}
