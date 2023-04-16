@@ -1,0 +1,47 @@
+{% extends 'oficiales/of_main.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<main class="dashboard-container">
+{% include 'oficiales/rev_form.html' %}
+
+    <section class="insc_container">
+        <h5 class="insc_title">Revision</h5>
+        <div class="orders-section">
+            
+            <table class="dash_table">
+                <tr>
+                    <th>Partido</th>
+                    <th>ID</th>
+                    <th>Falta</th>
+                    <th>Status</th>
+                    <th>Posicion</th>
+                    <th>Oficial</th>
+                    <th>Nº Jug</th>
+                    <th>Equipo</th>
+                    <th>Observacion</th>
+                </tr>
+
+                {% for review in reviews %}
+
+                <tr>
+                    <td>{{review.match_date}}</td>
+                    <td>{{review.play_numb}}</td>
+                    <td>{{review.penalty_code}}</td>
+                    <td>{{review.status}}</td>
+                    <td>{{review.official}}</td>
+                    <td>{{review.official_name}}</td>
+                    <td>{{review.team}}</td>
+                    <td>{{review.comments}}</td>
+                </tr>
+
+                {% endfor %}
+                
+            </table>
+        </div>
+    </section>
+</main>
+
+{% endblock %}
