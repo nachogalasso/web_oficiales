@@ -5,7 +5,7 @@ from django.template import loader
 
 from .models import *
 
-from .forms import NewRecruitsForm
+from .forms import  *
 
 # Create your views here.
 # Aqui van las functions que permiten navegar por los distintos templates
@@ -24,7 +24,17 @@ def loginPage(request):
 # DISPONIBILIDADES
 def availabilityPage(request):
     
-    return render(request, 'oficiales/of_disponibilidad.html');
+    form = AvailableOfficialsForm()
+    
+    context = {'form': form}
+    
+    if request.method == 'POST':
+        # print('a ver si funciona', request.POST)
+        form = AvailableOfficialsForm(request.POST)
+        if form.is_valid():
+            form.save()
+    
+    return render(request, 'oficiales/of_disponibilidad.html', context);
 
 # def disp_form4(request):
 #     return render(request, 'oficiales/disp_form4.html');
@@ -61,6 +71,23 @@ def dashboardPage(request):
 # CALENDAR PAGE
 def calendarPage(request):
     return render(request, 'oficiales/calendar.html')
+
+
+# REVIEWS PAGE
+def reviewPage(request):
+    reviewsForm = ReviewsForm()
+    
+    if request.method == 'POST':
+        # print(request.POST) tengo que probar eso
+        reviewsForm = ReviewsForm(request.POST)
+        if reviewsForm.is_valid():
+            reviewsForm.save()
+            
+    reviews = Reviews.objects.all()
+    
+    context = {'reviewsForm': reviewsForm, 'reviews': reviews}
+    
+    return render(request, 'oficiales/of_revisiones.html', context)
 
 
 
