@@ -1,93 +1,49 @@
-{% load static %}
-
-<div class="tab-content" id="form4">
-    <h3>Septiembre</h3>
-    <p>fecha 13 - 02 de Septiembre</p>
-    <form action="" method="POST" class="disp_form">
-        <div class="disp_form-games">
-            <p>1er partido - 13hs</p>
-            <label for="games">LEG vs TIB
-                <select name="legtib" id="">
-                    <option value="Yes">Si</option>
-                    <option value="No">No</option>
-                </select>
-            </label>
-        </div>
-        <div class="disp_form-games">
-            <p>2do partido - 15.30hs</p>
-            <label for="games">JAB vs CRU
-                <select name="jabcru" id="">
-                    <option value="Yes">Si</option>
-                    <option value="No">No</option>
-                </select>
-            </label>
-        </div>
-        <input type="submit" value="Ok"class="disp-btn">
-    </form>
-    <p>fecha 14 - 09 de Septiembre</p>
-    <form action="" method="POST" class="disp_form">
-        <div class="disp_form-games">
-            <p>1er partido - 13hs</p>
-            <label for="games">OSP vs JAB
-                <select name="ospjab" id="">
-                    <option value="Yes">Si</option>
-                    <option value="No">No</option>
-                </select>
-            </label>
-        </div>
-        <div class="disp_form-games">
-            <p>2do partido - 15.30hs</p>
-            <label for="games">COR vs LEG
-                <select name="corleg" id="">
-                    <option value="Yes">Si</option>
-                    <option value="No">No</option>
-                </select>
-            </label>
-        </div>
-        <input type="submit" value="Ok" class="disp-btn">
-    </form>
-    <p>fecha 15 - 16 de Septiembre</p>
-    <form action="" method="POST" class="disp_form">
-        <div class="disp_form-games">
-            <p>1er partido - 13hs</p>
-            <label for="games">TIB vs CRU
-                <select name="tibcru" id="">
-                    <option value="Yes">Si</option>
-                    <option value="No">No</option>
-                </select>
-            </label>
-        </div>
-        <div class="disp_form-games">
-            <p>2do partido - 15.30hs</p>
-            <label for="games">COR vs OSP
-                <select name="corosp" id="">
-                    <option value="Yes">Si</option>
-                    <option value="No">No</option>
-                </select>
-            </label>
-        </div>
-        <input type="submit" value="Ok" class="disp-btn">
-    </form>
-    {% comment %} <p>fecha 4 - 24 de Junio</p>
-    <form action="" method="POST" class="disp_form">
-        <div class="disp_form-games">
-            <p>1er partido</p>
-            <label for="games">TIB vs JAB
-                <select name="tibjab" id="">
-                    <option value="Yes">Si</option>
-                    <option value="No">No</option>
-                </select>
-            </label>
-        </div>
-        <div class="disp_form-games">
-            <p>2do partido</p>
-            <label for="games">CRU vs LEG
-                <select name="cruleg" id="">
-                    <option value="Yes">Si</option>
-                    <option value="No">No</option>
-                </select>
-            </label>
-        </div>
-        <input type="submit" value="Ok" class="disp-btn">
-    </form> {% endcomment %}
-</div>
+<h3>Septiembre</h3>
+<p>fecha 13 - 02 de Septiembre</p>
+<form action="" method="POST" class="disp_form">
+    <div class="disp_form-games">
+        <p>1er partido - 13hs</p>
+        <label for="games">LEG vs TIB
+            {{form.partido1}}
+        </label>
+    </div>
+    <div class="disp_form-games">
+        <p>2do partido - 15.30hs</p>
+        <label for="games">JAB vs CRU
+            {{form.partido2}}
+        </label>
+    </div>
+    <input type="submit" value="Ok"class="disp-btn">
+</form>
+<p>fecha 14 - 09 de Septiembre</p>
+<form action="" method="POST" class="disp_form">
+    <div class="disp_form-games">
+        <p>1er partido - 13hs</p>
+        <label for="games">OSP vs JAB
+            {{form.partido1}}
+        </label>
+    </div>
+    <div class="disp_form-games">
+        <p>2do partido - 15.30hs</p>
+        <label for="games">COR vs LEG
+            {{form.partido2}}
+        </label>
+    </div>
+    <input type="submit" value="Ok" class="disp-btn">
+</form>
+<p>fecha 15 - 16 de Septiembre</p>
+<form action="" method="POST" class="disp_form">
+    <div class="disp_form-games">
+        <p>1er partido - 13hs</p>
+        <label for="games">TIB vs CRU
+            {{form.partido1}}
+        </label>
+    </div>
+    <div class="disp_form-games">
+        <p>2do partido - 15.30hs</p>
+        <label for="games">COR vs OSP
+            {{form.partido2}}
+        </label>
+    </div>
+    <input type="submit" value="Ok" class="disp-btn">
+</form>
