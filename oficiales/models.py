@@ -85,9 +85,9 @@ class Availability(models.Model):
     # )
     name = models.ForeignKey(Oficiales, null=True, on_delete=models.SET_NULL)
     game2 = models.ForeignKey(Calendar, null=True, on_delete=models.SET_NULL)
-    partido1 = models.CharField(max_length=100, null=True, choices=STATUS)
+    partido1 = models.CharField(max_length=100, null=True, choices=STATUS, default='Si' )
     # game1 =
-    partido2 = models.CharField(max_length=100, null=True, choices=STATUS)
+    partido2 = models.CharField(max_length=100, null=True, choices=STATUS, default='Si')
     date_informed = models.DateTimeField(auto_now_add=True, null=True)
     
     def __str__(self):

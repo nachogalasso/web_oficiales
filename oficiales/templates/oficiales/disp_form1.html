@@ -1,0 +1,84 @@
+<h3>Mayo / Junio</h3>
+<p>fecha 1 - 20 de Mayo</p>
+<form action="" method="POST" class="disp_form">
+    {% csrf_token %}
+    {% comment %} {{ form }} {% endcomment %}
+    <div class="disp_form-games">
+        <p>1er partido - 13hs</p>
+        <label for="games">LEG vs JAB
+            {{form.partido1}}
+            
+        </label>
+    </div>
+    <div class="disp_form-games">
+        <p>2do partido - 15.30hs</p>
+        <label for="games">CRU vs TIB
+            {{form.partido2}}
+            
+        </label>
+    </div>
+    <input type="submit" value="Ok"class="disp-btn">
+</form>
+<p>fecha 2 - 03 de Junio</p>
+<form action="" method="POST" class="disp_form">
+    {% csrf_token %}
+    <div class="disp_form-games">
+        <p>1er partido - 13hs</p>
+        <label for="games">JAB vs COR
+            {{form.partido1}}
+            
+        </label>
+    </div>
+    <div class="disp_form-games">
+        <p>2do partido -15.30hs</p>
+        <label for="games">LEG vs OSP
+            {{form.partido2}}
+            
+        </label>
+    </div>
+    <input type="submit" value="Ok" class="disp-btn">
+</form>
+<p>fecha 3 - 10 de Junio</p>
+<form action="" method="POST" class="disp_form">
+    <div class="disp_form-games">
+        <p>1er partido - 13hs</p>
+        <label for="games">OSP vs CRU
+            <select name="ospcru" id="">
+                <option value="Yes">Si</option>
+                <option value="No">No</option>
+            </select>
+        </label>
+    </div>
+    <div class="disp_form-games">
+        <p>2do partido - 15.30hs</p>
+        <label for="games">COR vs TIB
+            <select name="cortib" id="">
+                <option value="Yes">Si</option>
+                <option value="No">No</option>
+            </select>
+        </label>
+    </div>
+    <input type="submit" value="Ok" class="disp-btn">
+</form>
+<p>fecha 4 - 24 de Junio</p>
+<form action="" method="POST" class="disp_form">
+    <div class="disp_form-games">
+        <p>1er partido - 13hs</p>
+        <label for="games">TIB vs JAB
+            <select name="tibjab" id="">
+                <option value="Yes">Si</option>
+                <option value="No">No</option>
+            </select>
+        </label>
+    </div>
+    <div class="disp_form-games">
+        <p>2do partido - 15.30hs</p>
+        <label for="games">CRU vs LEG
+            <select name="cruleg" id="">
+                <option value="Yes">Si</option>
+                <option value="No">No</option>
+            </select>
+        </label>
+    </div>
+    <input type="submit" value="Ok" class="disp-btn">
+</form>
