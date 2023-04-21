@@ -817,21 +817,21 @@ input[type=number] {
   width: 100%;
 }
 
-.table caption {
+.table, .desig_table caption {
   font-size: 2rem;
   background-color: var(--intermediateBlue);
 }
 
-.table tr, th, td {
+.table, .desig_table tr, th, td {
   /* border: .1rem solid var(--mainBlue); */
   border-collapse: collapse;
 }
 
-.table th, td {
+.table, .desig_table th, td {
   padding: .5rem .8rem;
 }
 
-.table th {
+.table, .desig_table th {
   font-size: 1.5rem;
   font-variant: small-caps;
 }
@@ -1048,14 +1048,7 @@ input[type=number] {
 }
 
 @media screen and (min-width: 1024px) {
-  /* .dashboard-container {
-    flex-direction: row;
-    gap: 3rem;
-  }
 
-  .of_container {
-    flex: 0 0 calc(40% - 1rem);
-  } */
 
   .dash_table th {
     font-size: 1.6rem;
@@ -1205,6 +1198,43 @@ input[type=number] {
 }
 
 /* ===== CALENDAR END ===== */
+
+
+/* ===== DESIGNATIONS START ===== */
+.game_desigBoard {
+  display: flex;
+  flex-direction: column;
+  margin: 2rem auto;
+}
+
+.game_desigBoard-form {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.game {
+  padding: .5rem 1rem;
+  border: .1rem solid var(--mainBlue);
+  border-radius: .3rem;
+}
+
+.game-table caption {
+  padding: .5rem;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+@media screen and (min-width: 768px) {
+  .game_desigBoard-form {
+    flex-direction: row;
+    align-items: center;
+    gap: 3rem;
+  }
+}
+
+
+/* ===== DESIGNATIONS END ===== */
 
 
 /* ===== REVIEWS START ===== */

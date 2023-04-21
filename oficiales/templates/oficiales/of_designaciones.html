@@ -1,0 +1,162 @@
+{% extends 'oficiales/of_main.html' %}
+
+{% load static %}
+
+
+{% block content %}
+
+<main class="main__container">
+    <section class="">
+        <h3>Designaciones</h3>
+        <div class="table_container">
+            <table class="desig_table">
+                <caption>Disponibilidad Oficiales</caption>
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>1er Partido 13hs</th>
+                        <th>2do Partido 15.30hs</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for i in oficiales %}
+                    <tr>
+                        <td>{{i.name}}</td>
+                        <td>{{i.partido1}}</td>
+                        <td>{{i.partido2}}</td>
+                    </tr>
+
+                    {% endfor %}
+    
+                </tbody>
+            </table>
+        </div>
+
+
+    </section>
+
+    <section class="game_desigBoard">
+        <form action="" method="POST" class="game_desigBoard-form">
+            <div class="game">
+                <table class="game-table">
+                    <caption>Partido</caption>
+                    <thead>
+                        <tr>
+                            <th>Posicion</th>
+                            <th>Oficial</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                       
+                        <tr>
+                            <td>R</td>
+                            <td>
+                                <input type="text">         
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>U</td>
+                            <td>
+                                <input type="text">         
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>HL</td>
+                            <td>
+                                <input type="text">         
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>LJ</td>
+                            <td>
+                                <input type="text">         
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>SJ</td>
+                            <td>
+                                <input type="text">         
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>FJ</td>
+                            <td>
+                                <input type="text">         
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>BJ</td>
+                            <td>
+                                <input type="text">         
+                            </td>
+                        </tr>
+        
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="game">
+                <table class="game-table">
+                    <caption>Partido</caption>
+                    <thead>
+                        <tr>
+                            <th>Posicion</th>
+                            <th>Oficial</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                       
+                        <tr>
+                            <td>R</td>
+                            <td>
+                                <input type="text">         
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>U</td>
+                            <td>
+                                <input type="text">         
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>HL</td>
+                            <td>
+                                <input type="text">         
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>LJ</td>
+                            <td>
+                                <input type="text">         
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>SJ</td>
+                            <td>
+                                <input type="text">         
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>FJ</td>
+                            <td>
+                                <input type="text">         
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>BJ</td>
+                            <td>
+                                <input type="text">         
+                            </td>
+                        </tr>
+        
+                    </tbody>
+                </table>
+            </div>
+
+            <button type="submit" class="">Enviar</button>
+        </form>
+    </section>
+</main>
+
+
+{% endblock %}

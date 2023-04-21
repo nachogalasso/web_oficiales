@@ -73,6 +73,15 @@ def calendarPage(request):
     return render(request, 'oficiales/calendar.html')
 
 
+# DESIGNATIONS PAGE
+def designationsPage(request):
+    oficiales = Availability.objects.all()
+    
+    
+    context = {'oficiales':oficiales}
+    return render(request, 'oficiales/of_designaciones.html', context)
+
+
 # REVIEWS PAGE
 def reviewPage(request):
     reviewsForm = ReviewsForm()
