@@ -94,6 +94,9 @@ class Availability(models.Model):
         return self.name
     
     
+# DESIGNACIONES
+
+    
 # REVISIONES
 class Reviews(models.Model):
     # OFICIAL = [
