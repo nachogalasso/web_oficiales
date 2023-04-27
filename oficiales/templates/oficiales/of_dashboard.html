@@ -36,16 +36,25 @@
                     <th>Oficiales</th>
                     <th>1er Partido</th>
                     <th>2do Partido</th>
+                    <th>Update</th>
+                    <th>Delete</th>
                 </tr>
 
-                {% for oficial in oficials %}
+                {% for i in availability %}
 
                     <tr>
-                        <td>{{oficial.name}}</td>
-                        <td>{{oficial.game1}}</td>
-                        <td>{{oficial.game2}}</td>
-                        <td><a class="btn btn-info" href="">Update</a></td>
-                        <td><a class="btn btn-danger" href="">Delete</a></td>
+                        <td>{{i.oficial}}</td>
+                        <td>{{i.partido1}}</td>
+                        <td>{{i.partido2}}</td>
+                        {% comment %} <td>{{i.date_informed}}</td> {% endcomment %}
+                        {% comment %} <td><a class="btn btn-info" href="">Update</a></td> {% endcomment %}
+                        <td>
+                            <a class="btn btn-info" href="{% url 'update_available' pk=i.id %}" title="Edit"><i class="fa-solid fa-pen-to-square"></i></a>
+                        </td>
+                        {% comment %} <td><a class="btn btn-danger" href="">Delete</a></td> {% endcomment %}
+                        <td>
+                            <a class="btn btn-danger" href="" title="Edit"><i class="fa-solid fa-trash-can"></i></a>
+                        </td>
                     </tr>
                 
                     {% endfor %}
