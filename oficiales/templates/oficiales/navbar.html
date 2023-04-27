@@ -40,28 +40,37 @@
         <a class="list_item-link" href="">Descargas</a>
       </li>
       <li class="list_item">
-        <a class="list_item-link" href="{% url 'dashboard' %}">Dashboard</a>
+        <a class="list_item-link" href="{% url 'calendar' %}">Calendario</a>
       </li>
       <li class="list_item">
-        <a class="list_item-link" href="{% url 'availability' %}">Disponibilidad</a>
+        <a class="list_item-link" href="{% url 'available' %}">Disponibilidad</a>
+      </li>
+        {% if request.user.is_staff %}
+      <li class="list_item">
+        <a class="list_item-link" href="{% url 'dashboard' %}">Dashboard</a>
       </li>
       <li class="list_item">
         <a class="list_item-link" href="{% url 'designations' %}">Designaciones</a>
       </li>
       <li class="list_item">
-        <a class="list_item-link" href="{% url 'calendar' %}">Calendario</a>
-      </li>
-      <li class="list_item">
         <a class="list_item-link" href="{% url 'reviews' %}">Revisiones</a>
       </li>
+      {% endif %}
       <li class="list_item">
           
       </li>
     </ul>
     <div class="user-links">
       <ul class="user_list">
-          <li class="list_item">Hello</li>
-          <li class="list_item"><a href="">Logout</a></li>
+          <li class="list_item user">Hola, {{request.user}}
+            <a href="" class="user-profile">perfil</a>
+          </li>
+          <li class="list_item">
+            <a class="list_item-link" href="">Partidos</a>
+          </li>
+          <li class="list_item">
+            <a href="{% url 'logout' %}" title="logout"><i class="fa-solid fa-right-from-bracket"></i></a>
+          </li>
       </ul>
   </div>
 </navbar>

@@ -1,0 +1,63 @@
+{% extends 'oficiales/of_main.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<main class="main__container">
+
+    <section class="oficial_cards">
+        <div class="cards ">
+            <div class="card-header fCard">
+                <h5 class="co-title">Total SI</h5>
+            </div>
+            <div class="card-body fbc">
+                <h5 class="co-title">{{total_si}}</h5>
+            </div>
+        </div>
+        <div class="cards ">
+            <div class="card-header fCard">
+                <h5 class="co-title">Total NO</h5>
+            </div>
+            <div class="card-body fbc">
+                <h5 class="co-title">{{total_no}}</h5>
+            </div>
+        </div>
+    </section>
+
+    <section class="">
+        <h3>Partidos</h3>
+        <div class="table_container">
+            <table class="desig_table">
+                <caption>Disponibilidad Confirmada</caption>
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>1er Partido 13hs</th>
+                        <th>2do Partido 15.30hs</th>
+                        <th>Día informado</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for i in games %}
+                    <tr>
+                        <td>{{i.oficial}}</td>
+                        <td>{{i.partido1}}</td>
+                        <td>{{i.partido2}}</td>
+                        <td>{{i.date_informed}}</td>
+                        {% comment %} <td><a class="btn btn-info" href="{% url 'update_available' pk=oficial.id %} "  title="Edit"><i class="fa-solid fa-pen-to-square"></i></a></td>
+                        <td><a class="btn btn-danger" href="" title="Edit"><i class="fa-solid fa-trash-can"></i></a></td> {% endcomment %}
+                    </tr>
+                    {% endfor %}
+    
+                </tbody>
+            </table>
+        </div>
+
+
+    </section>
+
+
+</main>
+
+{% endblock %}
