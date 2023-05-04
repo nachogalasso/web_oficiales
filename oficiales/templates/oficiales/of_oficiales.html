@@ -6,6 +6,8 @@
 
 <main class="main__container">
 
+
+    <a class="btn" href="{% url 'available' pk=oficial.id %}">Ir a disponibilidad</a>
     <section class="oficial_cards">
         <div class="cards ">
             <div class="card-header fCard">
@@ -33,20 +35,39 @@
                 <thead>
                     <tr>
                         <th>Nombre</th>
-                        <th>1er Partido 13hs</th>
-                        <th>2do Partido 15.30hs</th>
+                        <th>Fecha</th>
+                        <th>Horario</th>
+                        <th>Status</th>
+                        <th>Horario</th>
+                        <th>Status</th>
                         <th>Día informado</th>
+                        <th></th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
-                    {% for i in games %}
+                    {% for game in games %}
                     <tr>
-                        <td>{{i.oficial}}</td>
-                        <td>{{i.partido1}}</td>
-                        <td>{{i.partido2}}</td>
-                        <td>{{i.date_informed}}</td>
-                        {% comment %} <td><a class="btn btn-info" href="{% url 'update_available' pk=oficial.id %} "  title="Edit"><i class="fa-solid fa-pen-to-square"></i></a></td>
-                        <td><a class="btn btn-danger" href="" title="Edit"><i class="fa-solid fa-trash-can"></i></a></td> {% endcomment %}
+                        <td>{{game.oficial}}</td>
+                        <td>{{calendar.0}}</td>
+                        <td>{{game.first_game}}</td>
+                        <td>{{game.partido1}}</td>
+                        <td>{{game.second_game}}</td>
+                        <td>{{game.partido2}}</td>
+                        <td>{{game.date_informed}}</td>
+                        <td>
+                            <a class="btn btn-info" href="{% url 'update_available' pk=game.id %}" title="Editar"><i class="fa-solid fa-pen-to-square"></i></a>
+                        </td>
+                        <td>
+                            <a class="btn btn-danger" href="{% url 'delete_available' pk=game.id %}" title="Eliminar"><i class="fa-solid fa-trash-can"></i></a>
+                        </td> 
+                        {% comment %} <td>
+                            <a class="btn btn-info" href=""  title="Edit"><i class="fa-solid fa-pen-to-square"></i></a>
+                        </td>
+                        <td>
+                            <a class="btn btn-danger" href="" title="Eliminar"><i class="fa-solid fa-trash-can"></i></a>
+                        </td>  {% endcomment %}
+                        
                     </tr>
                     {% endfor %}
     

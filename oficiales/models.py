@@ -1,3 +1,4 @@
+import calendar
 from unicodedata import category
 from django.db import models
 from .constants import *
@@ -7,34 +8,61 @@ from django.contrib.auth.models import User
 
 # OFICIALES FAARG
 class Oficiales(models.Model):
-    user = models.OneToOneField(User, null=True, on_delete=models.CASCADE)
+    # user = models.OneToOneField(User, null=True, on_delete=models.CASCADE)
     name = models.CharField(max_length=150, null=True)
     email = models.CharField(max_length=150, null=True)
     phone = models.CharField(max_length=150, null=True)
     
     def __str__(self):
         return self.name
+    
+# EQUIPOS
+class Teams(models.Model):
+    name = models.CharField(max_length=100, null=True)
+    logo = models.ImageField(null=True, blank=True)
+    
+    def __str__(self):
+        return self.name
+    
+HORARIO
+class Time(models.Model):
+    turno = models.CharField(max_length=50, null=True, choices=HORARIO)
+    
+    def __str__(self):
+        return self.turno
 
 # CALENDARIO
 class Calendar(models.Model):
-    
-    fecha = models.CharField(max_length=50, null=True)
-    horario = models.CharField(max_length=100, null=True, choices=HORARIO)
-    local = models.CharField(max_length=100, null=True, choices=EQUIPOS)
-    visitante = models.CharField(max_length=100, null=True, choices=EQUIPOS)
+    # horario = models.CharField(max_length=100, null=True)
+    day = models.DateField(null=True)
+    horario = models.ForeignKey(Time, null=True, on_delete=models.CASCADE)
+    # game = models.OneToOneField(Time, null=True, on_delete=models.CASCADE)
+    # local = models.CharField(max_length=100, null=True, choices=EQUIPOS)
+    # visitante = models.CharField(max_length=100, null=True, choices=EQUIPOS)
+    local = models.ForeignKey(Teams, max_length=100, null=True, on_delete=models.CASCADE, related_name='local')
+    visitante = models.ForeignKey(Teams, max_length=100, null=True, on_delete=models.CASCADE, related_name='visitante')
     
     def __str__(self):
-        return '{} {}'.format(self.fecha, self.horario)
+        # return '{} {}'.format(self.horario, self.fecha)
+        # return '{} {} {}'.format(self.day, self.local, self.visitante)
+        # return self.horario, self.fecha
+        return f"{self.day}"
+        # return str(self.horario)
     
 # DISPONIBILIDAD 
 class Availability(models.Model):
     
     # user = models.OneToOneField(User, null=True, on_delete=models.CASCADE)
     oficial = models.ForeignKey(Oficiales, null=True, on_delete=models.SET_NULL)
-    first_game = models.ForeignKey(Calendar, null=True, blank=True, on_delete=models.CASCADE, related_name='first_game')
+    # first_game = models.CharField(max_length=10, null=True, default='13hs')
+    first_game = models.ForeignKey(Time, null=True, on_delete=models.CASCADE, related_name='first_game')
     partido1 = models.CharField(max_length=100, null=True, choices=STATUS, default='Si' )
-    second_game = models.ForeignKey(Calendar, null=True, blank=True, on_delete=models.CASCADE, related_name='second_game')
+    # second_game = models.CharField(max_length=10, null=True, default='15.30hs')
+    second_game = models.ForeignKey(Time, null=True, on_delete=models.CASCADE, related_name='second_game')
     partido2 = models.CharField(max_length=100, null=True, choices=STATUS, default='Si')
+    # match = models.ForeignKey(Calendar, null=True, blank=True, on_delete=models.CASCADE)
+    
+    # available = models.CharField(max_length=100, null=True, choices=STATUS, default='Si')
     date_informed = models.DateTimeField(auto_now_add=True, null=True)
     
     def __str__(self):

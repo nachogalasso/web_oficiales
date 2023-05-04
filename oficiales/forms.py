@@ -21,8 +21,9 @@ class NewRecruitsForm(ModelForm):
 class AvailableOfficialsForm(ModelForm):
     class Meta:
         model = Availability
-        fields = '__all__'
-
+        # fields = '__all__'
+        fields = ['partido1', 'partido2']
+       
 
 class ReviewsForm(ModelForm):
     class Meta:

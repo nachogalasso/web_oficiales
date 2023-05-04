@@ -1,0 +1,18 @@
+{% extends 'oficiales/of_main.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<p>Estás seguro de borrar la designación de la fecha?</p>
+
+<form action="{% url 'delete_available' available.id %}"  method="POST">
+    {% csrf_token %}
+    <a href="{% url 'dashboard' %}">cancel</a>
+
+    <input type='submit' value='Confirmar'>
+</form>
+
+
+
+{% endblock %}
