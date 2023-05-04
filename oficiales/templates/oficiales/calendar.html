@@ -8,21 +8,55 @@
 <main class="calendar_container">
     <h3 class="cal_title">Calendario</h3>
     <section class="calendar_card">
+
         {% for game in games %}
-        <h4 class="card_title">{{game.fecha}} - {{game.horario}}</h4>
+        <h4 class="card_title">{{game.day}} - {{game.horario}}</h4>
         <div class="calendar_gamecard">
             <div class="gamecard-team">
                 <p>{{game.local}}</p>
-                <img loading="lazy" src="{% static 'oficiales/images/icons/cruzados_logo.png' %}" alt="logo_cruzados">
+                {% for team in logos %}
+                {% if team.name == game.local or team.name == 'Corsarios' %}
+                    <img src="{{ team.logo.url }}" alt="{{ game.local }}_logo">
+        
+                {% endif %}
+                {% endfor %}
             </div>
             <p>VS</p>
             <div class="gamecard-team">
                 <p>{{game.visitante}}</p>
-                <img loading="lazy" src="{% static 'oficiales/images/icons/jabalies_logo.png' %}" alt="logo_jabalies">
+                {% comment %} <img loading="lazy" src="{% static 'oficiales/images/icons/jabalies_logo.png' %}" alt="logo_jabalies"> {% endcomment %}
             </div>
         </div>
         {% endfor %}
+
     </section>
+            {% for team in logos %}
+               
+                <img src="{{ team.logo.url }}" alt="logo">
+                
+             {% endfor %}
+
+             {% comment %} {% for game in games %}
+             <h4 class="card_title">{{game.day}} - {{game.horario}}</h4>
+             <div class="calendar_gamecard">
+                 <div class="gamecard-team">
+                     <p>{{game.local}}</p>
+                     {% for team in logos %}
+                     {% if team.name == 'Corsarios' %}
+                     <img src="{{ team.logo.url }}" alt="{{ game.local }}_logo">
+                     {% elif team.name == game.local %}
+                     <img src="{{ team.logo.url }}" alt="{{ game.local }}_logo">
+                     {% elif team.name == game.local %}
+                     <img src="{{ team.logo.url }}" alt="{{ game.local }}_logo">
+                     {% elif team.name == game.local %}
+                     <img src="{{ team.logo.url }}" alt="{{ game.local }}_logo">
+                     {% elif team.name == game.local %}
+                     <img src="{{ team.logo.url }}" alt="{{ game.local }}_logo">
+                     {% elif team.name == game.local %}
+                     <img src="{{ team.logo.url }}" alt="{{ game.local }}_logo">
+                     {% endif %}
+                     {% endfor %}
+                 </div> {% endcomment %}
 
 </main>
 

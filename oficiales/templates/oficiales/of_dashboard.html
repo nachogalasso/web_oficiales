@@ -7,13 +7,20 @@
 {% comment %} {% include 'oficiales/status.html' %} {% endcomment %}
 
 <main class="dashboard-container">
+
+    {% comment %} INICIO - TABLA DISPONIBILIDAD OFICIALES {% endcomment %}
+
     <section class="oficial_cards">
         <div class="cards ">
             <div class="card-header fCard">
                 <h5 class="co-title">Oficiales disponibles</h5>
             </div>
             <div class="card-body fbc">
-                <h5 class="co-title">{{available}}</h5>
+
+                <h5 class="co-title">1er: </h5>
+                <h5 class="co-title">{{available1}}</h5>
+                <h5 class="co-title">2do: </h5>
+                <h5 class="co-title">{{available2}}</h5>
             </div>
         </div>
         <div class="cards ">
@@ -21,21 +28,27 @@
                 <h5 class="co-title">Oficiales No disponibles</h5>
             </div>
             <div class="card-body fbc">
-                <h5 class="co-title">{{not_available}}</h5>
+                <h5 class="co-title">1er: </h5>
+                <h5 class="co-title">{{not_available1}}</h5>
+                <h5 class="co-title">2do: </h5>
+                <h5 class="co-title">{{not_available2}}</h5>
             </div>
         </div>
     </section>
     <section class="of_container">
         
-        <h5 class="of_title">Oficiales confirmados</h5>
-        <div class="of_section">
-            {% comment %} <a href="#"><button type="button"   class="co-btn">Create Customers</button></a> {% endcomment %}
-            {% comment %} <a href="#"   class="co-btn">Create Customers</a> {% endcomment %}
-            <table class="dash_table">
+        <h5 class="of_title">Oficiales</h5>
+        <div class="table_container">
+           
+            <table class="table">
                 <tr>
+                    <th></th>
                     <th>Oficiales</th>
-                    <th>1er Partido</th>
-                    <th>2do Partido</th>
+                    <th>Horario</th>
+                    <th>Disponible</th>
+                    <th>Horario</th>
+                    <th>Disponible</th>
+                    <th>Informado</th>
                     <th>Update</th>
                     <th>Delete</th>
                 </tr>
@@ -43,25 +56,33 @@
                 {% for i in availability %}
 
                     <tr>
-                        <td>{{i.oficial}}</td>
-                        <td>{{i.partido1}}</td>
-                        <td>{{i.partido2}}</td>
-                        {% comment %} <td>{{i.date_informed}}</td> {% endcomment %}
+                        <td data-title=""><a href="{% url 'officials' pk=i.oficial.id %}">ver</a></td>
+                        <td data-title="Oficiales">{{i.oficial}}</td>
+                        <td data-title="Horario">{{i.first_game}}</td>
+                        <td data-title="Disponible">{{i.partido1}}</td>
+                        <td data-title="Horario">{{i.second_game}}</td>
+                        <td data-title="Disponible">{{i.partido2}}</td>
+                        <td data-title="Informado">{{i.date_informed}}</td>
                         {% comment %} <td><a class="btn btn-info" href="">Update</a></td> {% endcomment %}
-                        <td>
-                            <a class="btn btn-info" href="{% url 'update_available' pk=i.id %}" title="Edit"><i class="fa-solid fa-pen-to-square"></i></a>
+                        <td data-title="Editar">
+                            <a class="btn btn-info" href="{% url 'update_available' pk=i.id %}" title="Editar"><i class="fa-solid fa-pen-to-square"></i></a>
                         </td>
                         {% comment %} <td><a class="btn btn-danger" href="">Delete</a></td> {% endcomment %}
-                        <td>
-                            <a class="btn btn-danger" href="" title="Edit"><i class="fa-solid fa-trash-can"></i></a>
-                        </td>
+                        <td data-title="Borrar">
+                            <a class="btn btn-danger" href="{% url 'delete_available' pk=i.id %}" title="Eliminar"><i class="fa-solid fa-trash-can"></i></a>
+                        </td> 
                     </tr>
                 
                     {% endfor %}
             </table>
         </div>
+
+        {% comment %} FIN - TABLA DISPONIBILIDAD OFICIALES {% endcomment %}
+
     </section>
 
+
+    {% comment %} INICIO - TABLA INSCRIPTOS AL CURSO DE OFICIALES {% endcomment %}
     <div class="cards ">
         <div class="card-header sCard">
             <h5 class="co-title">Total Inscriptos</h5>
@@ -99,6 +120,9 @@
                 
             </table>
         </div>
+
+        {% comment %} FIN - TABLA INSCRIPTOS AL CURSO DE OFICIALES {% endcomment %}
+
     </section>
 
 

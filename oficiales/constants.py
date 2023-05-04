@@ -1,6 +1,6 @@
 HORARIO = (
-        ('1er partido - 13hs', '1er partido - 13hs'),
-        ('2do partido - 15.30hs', '2do partido - 15.30hs'),
+        ('13hs', '13hs'),
+        ('15.30hs', '15.30hs'),
 )
 
 EQUIPOS = (
