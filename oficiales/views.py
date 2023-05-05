@@ -84,6 +84,20 @@ def officialsPage(request, pk):
     return render(request, 'oficiales/of_oficiales.html', context)
 
 
+@login_required(login_url='loginPage')
+@allowed_users(allowed_roles=['of_users'])
+def accountSettings(request):
+    oficial = request.user.oficiales 
+    form = OffialSettingsForm(instance=oficial)
+    
+    if request.method == 'POST':
+        form = OffialSettingsForm(request.POST, request.FILES,  instance=oficial)
+        if form.is_valid():
+            form.save()
+        
+    
+    context = {'form': form}
+    return render(request, 'oficiales/of_profile.html', context)
 
 # @login_required(login_url='loginPage')
 # @allowed_users(allowed_roles=['of_users', 'of_admin'])

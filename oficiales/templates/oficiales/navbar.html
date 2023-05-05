@@ -63,11 +63,12 @@
     <div class="user-links">
       <ul class="user_list">
           <li class="list_item user">Hola, {{request.user}}
-            <a href="" class="user-profile">perfil</a>
+            <a class="user-profile" href="{% url 'acc_settings' %}">perfil</a>
           </li>
           {% comment %} <li class="list_item">
             <a class="list_item-link" href="{% url 'officials' pk_test %}">Partidos</a>
           </li> {% endcomment %}
+          
           <li class="list_item">
             <a href="{% url 'logout' %}" title="logout"><i class="fa-solid fa-right-from-bracket"></i></a>
           </li>
