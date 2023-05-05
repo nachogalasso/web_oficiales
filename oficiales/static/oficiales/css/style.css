@@ -817,31 +817,35 @@ input[type=number] {
   width: 100%;
 }
 
-.table, .desig_table caption {
+.table caption {
   font-size: 2rem;
-  background-color: var(--intermediateBlue);
+  /* background-color: var(--intermediateBlue); */
 }
 
-.table, .desig_table tr, th, td {
+.table {
+  width: 100%;
+}
+
+.table tr, th, td {
   /* border: .1rem solid var(--mainBlue); */
   border-collapse: collapse;
-}
-
-.table, .desig_table th, td {
-  padding: .5rem .8rem;
-}
-
-.table, .desig_table th {
-  font-size: 1.5rem;
   font-variant: small-caps;
+  padding: .5rem .8rem;
+  font-size: 1.5rem;
+
 }
 
-.table tr:nth-child(even) {
-  background-color: var(--lightBlue);
+.table th, td {
+  text-align: center;
 }
+
+  /* .table tr:nth-child(even) {
+    background-color: var(--lightBlue);
+  } */
 
 .table tr:hover {
-  background-color: var(--intermediateBlue);
+  /* background-color: var(--intermediateBlue); */
+  background-color: #cecece;
   cursor: pointer;
 }
 
@@ -857,7 +861,7 @@ input[type=number] {
     flex-direction: column;
     border: .1rem solid var(--mainBlue);
     padding: .5rem;
-    background-color: var(--mainWhite);
+    /* background-color: var(--mainWhite); */
   }
 
   .table, th, td {
@@ -866,7 +870,8 @@ input[type=number] {
   }
 
   .table {
-    width: 40rem;
+    margin: 0 auto;
+    width: 100%;
   }
 
   .table thead {

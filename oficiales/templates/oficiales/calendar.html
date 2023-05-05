@@ -24,7 +24,12 @@
             <p>VS</p>
             <div class="gamecard-team">
                 <p>{{game.visitante}}</p>
-                {% comment %} <img loading="lazy" src="{% static 'oficiales/images/icons/jabalies_logo.png' %}" alt="logo_jabalies"> {% endcomment %}
+                {% for team in logos %}
+                {% if team.name == game.visitante or team.name == 'Corsarios' %}
+                    <img src="{{ team.logo.url }}" alt="{{ game.visitante }}_logo">
+        
+                {% endif %}
+                {% endfor %}
             </div>
         </div>
         {% endfor %}

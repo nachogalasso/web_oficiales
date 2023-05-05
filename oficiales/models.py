@@ -8,10 +8,11 @@ from django.contrib.auth.models import User
 
 # OFICIALES FAARG
 class Oficiales(models.Model):
-    # user = models.OneToOneField(User, null=True, on_delete=models.CASCADE)
+    user = models.OneToOneField(User, null=True, blank=True, on_delete=models.CASCADE)
     name = models.CharField(max_length=150, null=True)
     email = models.CharField(max_length=150, null=True)
     phone = models.CharField(max_length=150, null=True)
+    profile_pic = models.ImageField(default="user_logo_nbg.png", null=True, blank=True)
     
     def __str__(self):
         return self.name
@@ -52,7 +53,7 @@ class Calendar(models.Model):
 # DISPONIBILIDAD 
 class Availability(models.Model):
     
-    # user = models.OneToOneField(User, null=True, on_delete=models.CASCADE)
+    user = models.OneToOneField(User, null=True, on_delete=models.CASCADE)
     oficial = models.ForeignKey(Oficiales, null=True, on_delete=models.SET_NULL)
     # first_game = models.CharField(max_length=10, null=True, default='13hs')
     first_game = models.ForeignKey(Time, null=True, on_delete=models.CASCADE, related_name='first_game')
