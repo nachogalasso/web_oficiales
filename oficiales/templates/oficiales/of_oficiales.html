@@ -7,7 +7,7 @@
 <main class="main__container">
 
 
-    <a class="btn" href="{% url 'available' pk=oficial.id %}">Ir a disponibilidad</a>
+    <a class="btn" href="{% url 'available' oficial.id %}">Ir a disponibilidad</a>
     <section class="oficial_cards">
         <div class="cards ">
             <div class="card-header fCard">
@@ -56,10 +56,10 @@
                         <td>{{game.partido2}}</td>
                         <td>{{game.date_informed}}</td>
                         <td>
-                            <a class="btn btn-info" href="{% url 'update_available' pk=game.id %}" title="Editar"><i class="fa-solid fa-pen-to-square"></i></a>
+                            <a class="btn btn-info" href="{% url 'update_available' oficial.id %}" title="Editar"><i class="fa-solid fa-pen-to-square"></i></a>
                         </td>
                         <td>
-                            <a class="btn btn-danger" href="{% url 'delete_available' pk=game.id %}" title="Eliminar"><i class="fa-solid fa-trash-can"></i></a>
+                            <a class="btn btn-danger" href="{% url 'delete_available' oficial.id %}" title="Eliminar"><i class="fa-solid fa-trash-can"></i></a>
                         </td> 
                         {% comment %} <td>
                             <a class="btn btn-info" href=""  title="Edit"><i class="fa-solid fa-pen-to-square"></i></a>

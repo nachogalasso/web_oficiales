@@ -62,8 +62,18 @@
     </ul>
     <div class="user-links">
       <ul class="user_list">
-          <li class="list_item user">Hola, {{request.user}}
+        {% if user.is_authenticated %}
+
+          
+          <li class="list_item user">
+            <p>Hola, {{request.user.oficiales.name}}</p>
+          </li>
+          <li class="list_item user">
             <a class="user-profile" href="{% url 'acc_settings' %}">perfil</a>
+          </li>
+          
+          <li class="list_item">
+            <a class="list_item-link" href="{% url 'available' oficial.id %}">Disponibilidad</a>
           </li>
           {% comment %} <li class="list_item">
             <a class="list_item-link" href="{% url 'officials' pk_test %}">Partidos</a>
@@ -72,6 +82,14 @@
           <li class="list_item">
             <a href="{% url 'logout' %}" title="logout"><i class="fa-solid fa-right-from-bracket"></i></a>
           </li>
+
+          {% else %}
+          <li class="list_item user">
+            <a class =user-profile-link href="{% url 'loginPage' %}">Login<i class="fa-solid fa-right-to-bracket"></i></a>
+          </li>
+
+          {% endif %}
+
       </ul>
   </div>
 </navbar>

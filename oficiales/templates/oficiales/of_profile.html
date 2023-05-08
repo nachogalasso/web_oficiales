@@ -6,17 +6,31 @@
 
 <main class="dashboard-container">
     <div class="pic-container">
-        <a class="btn" href="">&#8592; Back to profile</a>
-        <h3 class="acc-title">Account Settings</h3>
+        <a class="a-profile" href="">&#8592; Back to profile</a>
+        <h3 class="of_title">Account Settings</h3>
         <img class="profile-image" src="{{request.user.oficiales.profile_pic.url}}"> 
     </div>
 
     <div class="form-container">
         {% comment %} Con multipart/form-data le indicamos que vamos a traer la info del usuario {% endcomment %}
-        <form action="" method="POST" enctype="multipart/form-data">
+        <form class="profile-form" action="" method="POST" enctype="multipart/form-data">
             {% csrf_token %}
-            {{form.as_p}}
-            <input type="submit" value="Update" class="">
+            <div class="inputs">
+                <label>Nombre:
+                    {{form.name}}
+                </label>
+                <label>Email:
+                    {{form.email}}
+                </label>
+                <label>Teléfono:
+                    {{form.phone}}
+                </label>
+                <label class="profile_pic-input">Foto Perfil:
+                    {{form.profile_pic}}
+                </label>
+            </div>
+            {% comment %} {{form.as_p}} {% endcomment %}
+            <input type="submit" value="Update" class="btn">
         </form>
     </div>
 
