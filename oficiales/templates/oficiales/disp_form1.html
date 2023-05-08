@@ -5,7 +5,7 @@
     {% comment %} {{form.as_p}} {% endcomment %}
     <p>{{form.oficial}}</p>
     <div class="disp_form-games">
-        <p>1er partido - 13hs{{form.first_game}}</p>
+        <p>1er partido - 13hs{{form.first_game.1}}</p>
         <label for="games">LEG vs JAB
             {{form.partido1}}
             
@@ -13,7 +13,7 @@
     </div>
     <div class="disp_form-games">
         {% comment %} <p>2do partido - {{form.calendar.value}}</p> {% endcomment %}
-        <p>2do partido - 15.30hs{{form.second_game}}</p>
+        <p>2do partido - 15.30hs{{form.second_game.2}}</p>
         <label for="games">CRU vs TIB
             {{form.partido2}}
             

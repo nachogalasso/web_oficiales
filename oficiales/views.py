@@ -4,6 +4,8 @@ from django.http import HttpResponse
 from django.template import loader
 from django.contrib import messages
 
+import oficiales
+
 from .decorators import unauthenticated_user, allowed_users, admin_only
 
 from .models import *
@@ -26,7 +28,7 @@ def home(request):
 def landing_page(request):
     return render(request, 'oficiales/of_incrispcion.html');
 
-# @unauthenticated_user
+
 def loginPage(request):
     
     if request.method == 'POST':
@@ -35,15 +37,21 @@ def loginPage(request):
         
         user = authenticate(request, username=username, password=password)
         
+        
         if user is not None:
             login(request, user)
-            return redirect('home')
+            user = request.user.id
+            print('El usuario es: ', user)
+            oficial = Oficiales.objects.get(user_id=user)
+            
+            return redirect('officials', oficial.id)
         else:
             messages.info(request, 'El usuario o la password no es correcto.')
             # return render(request, 'oficiales/login.html');
         
     context = {}        
     return render(request, 'oficiales/login.html', context);
+
 
 def logoutUser(request):
     logout(request)
@@ -61,12 +69,12 @@ def logoutUser(request):
 
 
 # @unauthenticated_user
-# @login_required(login_url='loginPage')
-# @allowed_users(allowed_roles=['of_users'])
-def officialsPage(request, pk):
-    # request_id = request.user.oficiales.id
-    # oficial = Oficiales.objects.get(pk_test=request_id)
-    oficial = Oficiales.objects.get(id=pk)
+@login_required(login_url='loginPage')
+@allowed_users(allowed_roles=['of_users'])
+def officialsPage(request, id):
+    # request_id = request.user.id
+    # pk = request_id
+    oficial = Oficiales.objects.get(id=id)
     games = oficial.availability_set.all()
     calendar = Calendar.objects.filter(day='2023-05-20')
     
@@ -99,34 +107,34 @@ def accountSettings(request):
     context = {'form': form}
     return render(request, 'oficiales/of_profile.html', context)
 
-# @login_required(login_url='loginPage')
-# @allowed_users(allowed_roles=['of_users', 'of_admin'])
-def availabilityPage(request, pk):
-    oficial = Oficiales.objects.get(id=pk)
+@login_required(login_url='loginPage')
+@allowed_users(allowed_roles=['of_users', 'of_admin'])
+def availabilityPage(request, id):
+    oficial = Oficiales.objects.get(id=id)
     form = AvailableOfficialsForm(initial={'oficial': oficial})
     if request.method == 'POST':
         form = AvailableOfficialsForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('officials', oficial.id)
+            return redirect('officials', oficial)
             
     # context = {'form': form, 'available': available}
     context = {'form': form}
     return render(request, 'oficiales/of_disponibilidad.html', context);
 
 
-def updateAvailability(request, pk):
+def updateAvailability(request, id):
     
-    # oficial = Oficiales.objects.get(id=pk)
+    # oficial = Oficiales.objects.get(id=id)
     
-    available = Availability.objects.get(id=pk)
+    available = Availability.objects.get(id=id)
     form = AvailableOfficialsForm(instance=available)
     
     if request.method == 'POST':
         form = AvailableOfficialsForm(request.POST, instance=available)
         if form.is_valid():
             form.save()
-            return redirect('dashboard')
+            return redirect('officials')
         # else:
         #     print(form.errors)
             
@@ -135,13 +143,13 @@ def updateAvailability(request, pk):
     return render(request, 'oficiales/of_disponibilidad.html', context);
 
 
-def deleteAvailability(request, pk):
+def deleteAvailability(request, id):
     
-    available = Availability.objects.get(id=pk)
+    available = Availability.objects.get(id=id)
     
     if request.method == 'POST':
         available.delete()
-        return redirect('dashboard')
+        return redirect('officials')
     
     
     context = {'available': available}

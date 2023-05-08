@@ -15,11 +15,12 @@
             <div class="gamecard-team">
                 <p>{{game.local}}</p>
                 {% for team in logos %}
-                {% if team.name == game.local or team.name == 'Corsarios' %}
+                {% if team.name == game.local %}
+                {% comment %} {% if game.local in logos %} {% endcomment %}
                     <img src="{{ team.logo.url }}" alt="{{ game.local }}_logo">
         
-                {% endif %}
-                {% endfor %}
+                    {% endif %}
+                    {% endfor %}
             </div>
             <p>VS</p>
             <div class="gamecard-team">

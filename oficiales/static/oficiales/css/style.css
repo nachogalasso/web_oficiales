@@ -1244,6 +1244,75 @@ input[type=number] {
 /* ===== DESIGNATIONS END ===== */
 
 
+/* ===== PROFILE START ===== */
+.profile_container {
+  margin: 2rem auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 90vw;
+  max-width: 110rem;
+  gap: 1rem;
+}
+
+.pic-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.a-profile {
+  display: block;
+  margin: 2.5rem 0;
+  align-self: flex-start;
+}
+
+.profile-image {
+  width: 25rem;
+}
+
+.form-container {
+  margin: 2rem auto;
+  width: 90vw;
+  max-width: 110rem;
+}
+
+/* .profile-form  {
+  margin: 0 auto;
+} */
+
+.inputs {
+  margin: 0 auto;
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+}
+
+.inputs label {
+  padding: .5rem;
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+.inputs label > input {
+  width:100%;
+  padding: .5rem;
+  margin-top: .5rem;
+  border-radius: .5rem;
+  border: none;
+}
+
+.profile_pic-input {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ===== PROFILE END ===== */
+
+
 /* ===== REVIEWS START ===== */
 
 /* ===== REVIEWS END ===== */

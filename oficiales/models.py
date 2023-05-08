@@ -12,7 +12,7 @@ class Oficiales(models.Model):
     name = models.CharField(max_length=150, null=True)
     email = models.CharField(max_length=150, null=True)
     phone = models.CharField(max_length=150, null=True)
-    profile_pic = models.ImageField(default="user_logo_nbg.png", null=True, blank=True)
+    profile_pic = models.ImageField(default="user_logo_nbg.pngT", null=True, blank=True)
     
     def __str__(self):
         return self.name

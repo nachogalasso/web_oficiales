@@ -43,7 +43,6 @@
             <table class="table">
                 <thead>
                     <tr>
-                        <th></th>
                         <th>Oficiales</th>
                         <th>Horario</th>
                         <th>Disponible</th>
@@ -59,20 +58,20 @@
 
                     <tbody>
                         <tr>
-                            <td data-title=""><a href="{% url 'officials' pk=i.oficial.id %}">ver</a></td>
+                            
                             <td data-title="Oficiales">{{i.oficial}}</td>
                             <td data-title="Horario">{{i.first_game}}</td>
                             <td data-title="Disponible">{{i.partido1}}</td>
                             <td data-title="Horario">{{i.second_game}}</td>
                             <td data-title="Disponible">{{i.partido2}}</td>
                             <td data-title="Informado">{{i.date_informed}}</td>
-                            {% comment %} <td><a class="btn btn-info" href="">Update</a></td> {% endcomment %}
+                            {% comment %} <td><a class="btn btn-info" href="">Update</a></td> 
                             <td data-title="Editar">
                                 <a class="btn btn-info" href="{% url 'update_available' pk=i.id %}" title="Editar"><i class="fa-solid fa-pen-to-square"></i></a>
                             </td>
-                            {% comment %} <td><a class="btn btn-danger" href="">Delete</a></td> {% endcomment %}
+                            <td><a class="btn btn-danger" href="">Delete</a></td> 
                             <td data-title="Borrar">
-                                <a class="btn btn-danger" href="{% url 'delete_available' pk=i.id %}" title="Eliminar"><i class="fa-solid fa-trash-can"></i></a>
+                                <a class="btn btn-danger" href="{% url 'delete_available' pk=i.id %}" title="Eliminar"><i class="fa-solid fa-trash-can"></i></a>{% endcomment %}
                             </td>
                         </tr>
                     </tbody>
