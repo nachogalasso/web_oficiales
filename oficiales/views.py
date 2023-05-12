@@ -1,5 +1,6 @@
+from gc import disable
 from multiprocessing import context
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse
 from django.template import loader
 from django.contrib import messages
@@ -11,7 +12,6 @@ from .decorators import unauthenticated_user, allowed_users, admin_only
 from .models import *
 
 from .forms import  *
-from django.forms import inlineformset_factory
 
 
 
@@ -37,14 +37,12 @@ def loginPage(request):
         
         user = authenticate(request, username=username, password=password)
         
-        
         if user is not None:
             login(request, user)
-            user = request.user.id
-            print('El usuario es: ', user)
-            oficial = Oficiales.objects.get(user_id=user)
+            # user_id = request.user.id
+            # oficial = Oficiales.objects.get()
             
-            return redirect('officials', oficial.id)
+            return redirect('officials')
         else:
             messages.info(request, 'El usuario o la password no es correcto.')
             # return render(request, 'oficiales/login.html');
@@ -70,13 +68,13 @@ def logoutUser(request):
 
 # @unauthenticated_user
 @login_required(login_url='loginPage')
-@allowed_users(allowed_roles=['of_users'])
-def officialsPage(request, id):
-    # request_id = request.user.id
-    # pk = request_id
-    oficial = Oficiales.objects.get(id=id)
+# @allowed_users(allowed_roles=['of_users'])
+def officialsPage(request):
+    oficial = Oficiales.objects.get(user=request.user)
     games = oficial.availability_set.all()
     calendar = Calendar.objects.filter(day='2023-05-20')
+    time = Time.objects.all()
+    
     
     # Ahora creamos el contador para saber los que tenemos
     count_partido1_si = games.filter(partido1='Si').count()
@@ -87,13 +85,13 @@ def officialsPage(request, id):
     total_no = count_partido1_no + count_partido2_no
     
     # 'games': games, 'total_si': total_si, 'total_no': total_no
-    context = {'oficial': oficial, 'games': games, 'total_si': total_si, 'total_no': total_no, 'calendar': calendar}
+    context = {'oficial': oficial, 'games': games, 'total_si': total_si, 'total_no': total_no, 'calendar': calendar, 'time': time}
      
     return render(request, 'oficiales/of_oficiales.html', context)
 
 
 @login_required(login_url='loginPage')
-@allowed_users(allowed_roles=['of_users'])
+# @allowed_users(allowed_roles=['of_users'])
 def accountSettings(request):
     oficial = request.user.oficiales 
     form = OffialSettingsForm(instance=oficial)
@@ -107,45 +105,92 @@ def accountSettings(request):
     context = {'form': form}
     return render(request, 'oficiales/of_profile.html', context)
 
-@login_required(login_url='loginPage')
-@allowed_users(allowed_roles=['of_users', 'of_admin'])
-def availabilityPage(request, id):
-    oficial = Oficiales.objects.get(id=id)
+# @login_required(login_url='loginPage')
+# @allowed_users(allowed_roles=['of_users', 'of_admin'])
+# def availabilityPage(request, user_id):
+    # oficial = Oficiales.objects.get(user_id=user_id)
+    # form = AvailableOfficialsForm(instance=oficial)
+    # if request.method == 'POST':
+    #     print('request: ', request.POST)
+    #     form = AvailableOfficialsForm(request.POST, instance=oficial)
+    #     if form.is_valid():
+    #         form.save()
+    #         return redirect('officials', oficial.user_id)
+    #     else:
+    #         form = AvailableOfficialsForm()
+    #         print(form.errors)
+def availabilityPage(request, pk):
+   
+    oficial = Oficiales.objects.get(id=pk)
+    
     form = AvailableOfficialsForm(initial={'oficial': oficial})
+    
     if request.method == 'POST':
-        form = AvailableOfficialsForm(request.POST)
+        form = AvailableOfficialsForm(request.POST, instance=oficial)
         if form.is_valid():
             form.save()
-            return redirect('officials', oficial)
+            print(form.errors)
+            return redirect('officials')
+        else:
+            form = AvailableOfficialsForm()
             
-    # context = {'form': form, 'available': available}
     context = {'form': form}
-    return render(request, 'oficiales/of_disponibilidad.html', context);
+    return render(request, 'oficiales/of_disponibilidad.html', context)
+    
+            
+    # error: 'Disponibilidad no ingresada'
+    # if request.method == 'GET':
+    #     return render(request, 'oficiales/of_disponibilidad.html', context)
+    # else:
+    #     try:
+    #         form = AvailableOfficialsForm(request.POST, instance=oficial)
+    #         if form.is_valid():
+    #             new_available = form.save()
+    #             new_available.user = request.user
+    #         return redirect('officials');
+    #     except ValueError:
+    #         print(form.errors)
+    #         return redirect('officials');
+        
+        
+            
 
 
-def updateAvailability(request, id):
+def updateAvailability(request, pk):
     
-    # oficial = Oficiales.objects.get(id=id)
-    
-    available = Availability.objects.get(id=id)
+    available = Availability.objects.get(id=pk)
     form = AvailableOfficialsForm(instance=available)
     
-    if request.method == 'POST':
+    context = {'form': form}
+    if request.method == 'GET':
+        return render(request, 'oficiales/of_disponibilidad.html', context)
+    else:
         form = AvailableOfficialsForm(request.POST, instance=available)
         if form.is_valid():
-            form.save()
-            return redirect('officials')
+            new_available = form.save()
+            new_available.user = request.user
+        return redirect('officials');
+    # oficial = Oficiales.objects.get(id=id)
+    
+    # available = Availability.objects.get()
+    # form = AvailableOfficialsForm(instance=available)
+    
+    # if request.method == 'POST':
+    #     form = AvailableOfficialsForm(request.POST, instance=available)
+    #     if form.is_valid():
+    #         form.save()
+    #         return redirect('officials')
         # else:
         #     print(form.errors)
             
     
-    context = {'form': form}
-    return render(request, 'oficiales/of_disponibilidad.html', context);
+    # return render(request, 'oficiales/of_disponibilidad.html', context);
 
 
-def deleteAvailability(request, id):
+def deleteAvailability(request, pk):
     
-    available = Availability.objects.get(id=id)
+    available = Availability.objects.get(id=pk)
+    print(available)
     
     if request.method == 'POST':
         available.delete()
@@ -175,7 +220,8 @@ def dashboardPage(request):
     oficials = Oficiales.objects.all()
     availability = Availability.objects.all()
     calendar = Calendar.objects.all()
-    print(calendar)
+    time = Time.objects.all()
+    
     # Ahora creamos el contador para saber los que tenemos
     total_newRecruits = newRecruits.count()
     available1 = availability.filter(partido1='Si').count()
@@ -184,7 +230,7 @@ def dashboardPage(request):
     not_available2 = availability.filter(partido2='No').count()
     
     # Recordar que el context lo utilizamos para colocar todos los models y datos que estamos referenciando
-    context = {'newRecruits': newRecruits, 'oficials': oficials, 'total_newRecruits': total_newRecruits, 'available1': available1, 'available2': available2, 'not_available1': not_available1, 'not_available2': not_available2, 'availability': availability, 'calendar': calendar}
+    context = {'newRecruits': newRecruits, 'oficials': oficials, 'total_newRecruits': total_newRecruits, 'available1': available1, 'available2': available2, 'not_available1': not_available1, 'not_available2': not_available2, 'availability': availability, 'calendar': calendar, 'time': time}
     return render(request, 'oficiales/of_dashboard.html', context)
 
 
@@ -192,9 +238,7 @@ def dashboardPage(request):
 def calendarPage(request):
     games = Calendar.objects.all()
     logos = Teams.objects.all()
-    
-    # logos = games.teams_set.all()
-    
+   
     context = {'games': games, 'logos': logos}
     return render(request, 'oficiales/calendar.html',  context)
 
@@ -203,9 +247,16 @@ def calendarPage(request):
 # @admin_only
 def designationsPage(request):
     oficiales = Availability.objects.all()
-    respuestas = Availability.objects.filter(oficial=request.user)
+    game1 = Availability.objects.filter(partido1='Si')
+    game2 = Availability.objects.filter(partido2='Si')
     
-    context = {'oficiales':oficiales, 'respuestas':respuestas}
+    official_choices = [("", "---------")] + [(availability.oficial.id, str(availability.oficial)) for availability in game1]
+    form = PositionsForm(choices=official_choices, initial={'oficial': ''})
+    official_choices2 = [("", "---------")] + [(availability.oficial.id, str(availability.oficial)) for availability in game2]
+    form2 = PositionsForm(choices=official_choices2, initial={'oficial': ''})
+    
+    
+    context = {'oficiales':oficiales, 'game1': game1, 'game2': game2, 'form': form, 'form2': form2}
     return render(request, 'oficiales/of_designaciones.html', context)
 
 

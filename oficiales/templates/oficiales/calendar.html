@@ -7,40 +7,36 @@
 
 <main class="calendar_container">
     <h3 class="cal_title">Calendario</h3>
+    
+    {% for game in games %}
     <section class="calendar_card">
-
-        {% for game in games %}
         <h4 class="card_title">{{game.day}} - {{game.horario}}</h4>
         <div class="calendar_gamecard">
             <div class="gamecard-team">
-                <p>{{game.local}}</p>
+                <p class="team_name">{{game.local}}</p>
                 {% for team in logos %}
-                {% if team.name == game.local %}
+                {% if team == game.local %}
                 {% comment %} {% if game.local in logos %} {% endcomment %}
                     <img src="{{ team.logo.url }}" alt="{{ game.local }}_logo">
         
                     {% endif %}
                     {% endfor %}
             </div>
-            <p>VS</p>
+            <p class="vs">VS</p>
             <div class="gamecard-team">
-                <p>{{game.visitante}}</p>
+                <p class="team_name">{{game.visitante}}</p>
                 {% for team in logos %}
-                {% if team.name == game.visitante or team.name == 'Corsarios' %}
+                {% if team == game.visitante %}
                     <img src="{{ team.logo.url }}" alt="{{ game.visitante }}_logo">
         
                 {% endif %}
                 {% endfor %}
             </div>
         </div>
+    </section>
         {% endfor %}
 
-    </section>
-            {% for team in logos %}
-               
-                <img src="{{ team.logo.url }}" alt="logo">
-                
-             {% endfor %}
+            
 
              {% comment %} {% for game in games %}
              <h4 class="card_title">{{game.day}} - {{game.horario}}</h4>

@@ -42,9 +42,7 @@
       <li class="list_item">
         <a class="list_item-link" href="{% url 'calendar' %}">Calendario</a>
       </li>
-      {% comment %} <li class="list_item">
-        <a class="list_item-link" href="{% url 'available' %}">Disponibilidad</a>
-      </li>  {% endcomment %}
+      
         {% comment %} {% if request.user.is_staff %} {% endcomment %}
       <li class="list_item">
         <a class="list_item-link" href="{% url 'dashboard' %}">Dashboard</a>
@@ -72,12 +70,12 @@
             <a class="user-profile" href="{% url 'acc_settings' %}">perfil</a>
           </li>
           
-          <li class="list_item">
-            <a class="list_item-link" href="{% url 'available' oficial.id %}">Disponibilidad</a>
-          </li>
           {% comment %} <li class="list_item">
-            <a class="list_item-link" href="{% url 'officials' pk_test %}">Partidos</a>
+            <a class="list_item-link" href="{% url 'available' oficial.id %}">Disponibilidad</a>
           </li> {% endcomment %}
+          <li class="list_item">
+            <a class="list_item-link" href="{% url 'officials' %}">Partidos</a>
+          </li>
           
           <li class="list_item">
             <a href="{% url 'logout' %}" title="logout"><i class="fa-solid fa-right-from-bracket"></i></a>

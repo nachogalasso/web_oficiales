@@ -14,14 +14,14 @@
                 <thead>
                     <tr>
                         <th>Nombre</th>
-                        <th>1er Partido 13hs</th>
-                        <th>2do Partido 15.30hs</th>
+                        <th>1ro 13hs</th>
+                        <th>2do 15.30hs</th>
                     </tr>
                 </thead>
                 <tbody>
                     {% for i in oficiales %}
                     <tr>
-                        <td>{{i.name}}</td>
+                        <td>{{i.oficial}}</td>
                         <td>{{i.partido1}}</td>
                         <td>{{i.partido2}}</td>
                     </tr>
@@ -37,6 +37,7 @@
 
     <section class="game_desigBoard">
         <form action="" method="POST" class="game_desigBoard-form">
+            {% csrf_token %}
             <div class="game">
                 <table class="game-table">
                     <caption>Partido</caption>
@@ -47,48 +48,33 @@
                         </tr>
                     </thead>
                     <tbody>
-                       
                         <tr>
                             <td>R</td>
-                            <td>
-                                <input type="text">         
-                            </td>
+                            <td>{{form.oficial}}</td>
                         </tr>
                         <tr>
                             <td>U</td>
-                            <td>
-                                <input type="text">         
-                            </td>
+                            <td>{{form.oficial}}</td>
                         </tr>
                         <tr>
                             <td>HL</td>
-                            <td>
-                                <input type="text">         
-                            </td>
+                            <td>{{form.oficial}}</td>
                         </tr>
                         <tr>
                             <td>LJ</td>
-                            <td>
-                                <input type="text">         
-                            </td>
+                            <td>{{form.oficial}}</td>
                         </tr>
                         <tr>
                             <td>SJ</td>
-                            <td>
-                                <input type="text">         
-                            </td>
+                            <td>{{form.oficial}}</td>
                         </tr>
                         <tr>
                             <td>FJ</td>
-                            <td>
-                                <input type="text">         
-                            </td>
+                            <td>{{form.oficial}}</td>
                         </tr>
                         <tr>
                             <td>BJ</td>
-                            <td>
-                                <input type="text">         
-                            </td>
+                            <td>{{form.oficial}}</td>
                         </tr>
         
                     </tbody>
@@ -105,48 +91,33 @@
                         </tr>
                     </thead>
                     <tbody>
-                       
                         <tr>
                             <td>R</td>
-                            <td>
-                                <input type="text">         
-                            </td>
+                            <td>{{form2.oficial}}</td>
                         </tr>
                         <tr>
                             <td>U</td>
-                            <td>
-                                <input type="text">         
-                            </td>
+                            <td>{{form2.oficial}}</td>
                         </tr>
                         <tr>
                             <td>HL</td>
-                            <td>
-                                <input type="text">         
-                            </td>
+                            <td>{{form2.oficial}}</td>
                         </tr>
                         <tr>
                             <td>LJ</td>
-                            <td>
-                                <input type="text">         
-                            </td>
+                            <td>{{form2.oficial}}</td>
                         </tr>
                         <tr>
                             <td>SJ</td>
-                            <td>
-                                <input type="text">         
-                            </td>
+                            <td>{{form2.oficial}}</td>
                         </tr>
                         <tr>
                             <td>FJ</td>
-                            <td>
-                                <input type="text">         
-                            </td>
+                            <td>{{form2.oficial}}</td>
                         </tr>
                         <tr>
                             <td>BJ</td>
-                            <td>
-                                <input type="text">         
-                            </td>
+                            <td>{{form2.oficial}}</td>
                         </tr>
         
                     </tbody>

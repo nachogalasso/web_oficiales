@@ -17,7 +17,7 @@ STATUS = (
         ('No', 'No'),
 )
 
-OFICIAL = [
+POSITION = [
         ('R', 'R'),
         ('U', 'U'),
         ('HL', 'HL'),

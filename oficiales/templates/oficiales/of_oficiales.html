@@ -50,16 +50,16 @@
                     <tr>
                         <td>{{game.oficial}}</td>
                         <td>{{calendar.0}}</td>
-                        <td>{{game.first_game}}</td>
+                        <td>{{time.0}}</td>
                         <td>{{game.partido1}}</td>
-                        <td>{{game.second_game}}</td>
+                        <td>{{time.1}}</td>
                         <td>{{game.partido2}}</td>
                         <td>{{game.date_informed}}</td>
                         <td>
-                            <a class="btn btn-info" href="{% url 'update_available' oficial.id %}" title="Editar"><i class="fa-solid fa-pen-to-square"></i></a>
+                            <a class="btn btn-info" href="{% url 'update_available' game.id %}" title="Editar"><i class="fa-solid fa-pen-to-square"></i></a>
                         </td>
                         <td>
-                            <a class="btn btn-danger" href="{% url 'delete_available' oficial.id %}" title="Eliminar"><i class="fa-solid fa-trash-can"></i></a>
+                            <a class="btn btn-danger" href="{% url 'delete_available' game.id %}" title="Eliminar"><i class="fa-solid fa-trash-can"></i></a>
                         </td> 
                         {% comment %} <td>
                             <a class="btn btn-info" href=""  title="Edit"><i class="fa-solid fa-pen-to-square"></i></a>
