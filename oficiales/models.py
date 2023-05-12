@@ -19,13 +19,13 @@ class Oficiales(models.Model):
     
 # EQUIPOS
 class Teams(models.Model):
-    name = models.CharField(max_length=100, null=True)
+    name = models.CharField(max_length=100, null=True, choices=EQUIPOS)
     logo = models.ImageField(null=True, blank=True)
     
     def __str__(self):
         return self.name
     
-HORARIO
+# HORARIO
 class Time(models.Model):
     turno = models.CharField(max_length=50, null=True, choices=HORARIO)
     
@@ -55,15 +55,11 @@ class Availability(models.Model):
     
     user = models.OneToOneField(User, null=True, on_delete=models.CASCADE)
     oficial = models.ForeignKey(Oficiales, null=True, on_delete=models.SET_NULL)
-    # first_game = models.CharField(max_length=10, null=True, default='13hs')
-    first_game = models.ForeignKey(Time, null=True, on_delete=models.CASCADE, related_name='first_game')
-    partido1 = models.CharField(max_length=100, null=True, choices=STATUS, default='Si' )
-    # second_game = models.CharField(max_length=10, null=True, default='15.30hs')
-    second_game = models.ForeignKey(Time, null=True, on_delete=models.CASCADE, related_name='second_game')
-    partido2 = models.CharField(max_length=100, null=True, choices=STATUS, default='Si')
-    # match = models.ForeignKey(Calendar, null=True, blank=True, on_delete=models.CASCADE)
     
-    # available = models.CharField(max_length=100, null=True, choices=STATUS, default='Si')
+    partido1 = models.CharField(max_length=100, null=True, choices=STATUS, default='Si' )
+    
+    partido2 = models.CharField(max_length=100, null=True, choices=STATUS, default='Si')
+  
     date_informed = models.DateTimeField(auto_now_add=True, null=True)
     
     def __str__(self):
@@ -80,7 +76,7 @@ class Reviews(models.Model):
     # time =
     penalty_code = models.CharField(max_length=50, null=True)
     status = models.CharField(max_length=50, choices=CALIFICACION)
-    official = models.CharField(max_length=50, null=True, choices=OFICIAL)
+    official = models.CharField(max_length=50, null=True, choices=POSITION)
     official_name = models.CharField(max_length=100, null=True)
     # player_number = models
     team = models.CharField(max_length=100, null=True, choices=EQUIPOS)

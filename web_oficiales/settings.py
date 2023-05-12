@@ -74,7 +74,7 @@ WSGI_APPLICATION = 'web_oficiales.wsgi.application'
 
 
 # Database
-# https://docs.djangoproject.com/en/4.1/ref/settings/#databases
+# https://docs.djangoproject.com/en/4.1/ref/settings/#datapythbases
 
 DATABASES = {
     'default': {

@@ -1,65 +1,96 @@
 <h3>Agosto</h3>
 <p>fecha 9 - 05 de Agosto</p>
 <form action="" method="POST" class="disp_form">
+    {% csrf_token %}
+    
+    <label for="oficial-name">
+        {{form.oficial}}
+    </label>
     <div class="disp_form-games">
         <p>1er partido - 13hs</p>
-        <label for="games">TIB vs COR
+        <label for="partido1">LEG vs JAB
             {{form.partido1}}
+            
         </label>
     </div>
     <div class="disp_form-games">
-        <p>2do partido - 15.30hs</p>
-        <label for="games">OSP vs CRU
+        <p>2do partido -15.30hs</p>
+        <label for="partido2">CRU vs TIB
             {{form.partido2}}
+            
         </label>
     </div>
     <input type="submit" value="Ok"class="disp-btn">
 </form>
+
 <p>fecha 10 - 12 de Agosto</p>
 <form action="" method="POST" class="disp_form">
+    {% csrf_token %}
+    
+    <label for="oficial-name">
+        {{form.oficial}}
+    </label>
     <div class="disp_form-games">
         <p>1er partido - 13hs</p>
-        <label for="games">LEG vs CRU
+        <label for="partido1">LEG vs JAB
             {{form.partido1}}
+            
         </label>
     </div>
     <div class="disp_form-games">
-        <p>2do partido - 15.30hs</p>
-        <label for="games">JAB vs TIB
+        <p>2do partido -15.30hs</p>
+        <label for="partido2">CRU vs TIB
             {{form.partido2}}
+            
         </label>
     </div>
-    <input type="submit" value="Ok" class="disp-btn">
+    <input type="submit" value="Ok"class="disp-btn">
 </form>
+
 <p>fecha 11 - 19 de Agosto</p>
 <form action="" method="POST" class="disp_form">
+    {% csrf_token %}
+    
+    <label for="oficial-name">
+        {{form.oficial}}
+    </label>
     <div class="disp_form-games">
         <p>1er partido - 13hs</p>
-        <label for="games">OSP vs LEG
+        <label for="partido1">LEG vs JAB
             {{form.partido1}}
+            
         </label>
     </div>
     <div class="disp_form-games">
-        <p>2do partido - 15.30hs</p>
-        <label for="games">COR vs JAB
+        <p>2do partido -15.30hs</p>
+        <label for="partido2">CRU vs TIB
             {{form.partido2}}
+            
         </label>
     </div>
-    <input type="submit" value="Ok" class="disp-btn">
+    <input type="submit" value="Ok"class="disp-btn">
 </form>
+
 <p>fecha 12 - 26 de Agosto</p>
 <form action="" method="POST" class="disp_form">
+    {% csrf_token %}
+    
+    <label for="oficial-name">
+        {{form.oficial}}
+    </label>
     <div class="disp_form-games">
         <p>1er partido - 13hs</p>
-        <label for="games">CRU vs COR
+        <label for="partido1">LEG vs JAB
             {{form.partido1}}
+            
         </label>
     </div>
     <div class="disp_form-games">
-        <p>2do partido - 15.30hs</p>
-        <label for="games">TIB vs OSP
+        <p>2do partido -15.30hs</p>
+        <label for="partido2">CRU vs TIB
             {{form.partido2}}
+            
         </label>
     </div>
-    <input type="submit" value="Ok" class="disp-btn">
+    <input type="submit" value="Ok"class="disp-btn">
 </form>

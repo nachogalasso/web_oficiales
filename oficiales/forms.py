@@ -1,6 +1,5 @@
-from calendar import c
 from django.forms import ModelForm
-from django.contrib.auth.forms import UserCreationForm
+# from django.contrib.auth.forms import UserCreationForm
 from django import forms
 from django.contrib.auth.models import User
 
@@ -23,7 +22,7 @@ class AvailableOfficialsForm(ModelForm):
     class Meta:
         model = Availability
         fields = '__all__'
-        # fields = ['partido1', 'partido2']
+        exclude = ['user']
        
 
 class ReviewsForm(ModelForm):
@@ -37,3 +36,15 @@ class OffialSettingsForm(ModelForm):
         model = Oficiales
         fields = '__all__'
         exclude = ['user']
+        
+
+
+class PositionsForm(forms.Form):
+    oficial = forms.ChoiceField(choices=[])
+    
+    def __init__(self, *args, **kwargs):
+        choices = kwargs.pop('choices')
+        super().__init__(*args, **kwargs)
+        self.fields['oficial'].choices = choices
+        
+    
