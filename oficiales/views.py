@@ -3,18 +3,24 @@ from multiprocessing import context
 from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse
 from django.template import loader
+# Error messages
 from django.contrib import messages
+# Date for filter
+from datetime import datetime
+# To send email and render data
+from django.core.mail import send_mail
+from django.template.loader import render_to_string
+from django.utils.html import strip_tags
+from django.core.mail import EmailMultiAlternatives
 
 import oficiales
 
+# Models, forms and authentication methods
 from .decorators import unauthenticated_user, allowed_users, admin_only
-
 from .models import *
-
 from .forms import  *
 
-
-
+# For the login
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import Group
@@ -107,84 +113,47 @@ def accountSettings(request):
 
 # @login_required(login_url='loginPage')
 # @allowed_users(allowed_roles=['of_users', 'of_admin'])
-# def availabilityPage(request, user_id):
-    # oficial = Oficiales.objects.get(user_id=user_id)
-    # form = AvailableOfficialsForm(instance=oficial)
-    # if request.method == 'POST':
-    #     print('request: ', request.POST)
-    #     form = AvailableOfficialsForm(request.POST, instance=oficial)
-    #     if form.is_valid():
-    #         form.save()
-    #         return redirect('officials', oficial.user_id)
-    #     else:
-    #         form = AvailableOfficialsForm()
-    #         print(form.errors)
 def availabilityPage(request, pk):
    
     oficial = Oficiales.objects.get(id=pk)
-    
+    dates = Calendar.objects.all()
     form = AvailableOfficialsForm(initial={'oficial': oficial})
-    
+ 
     if request.method == 'POST':
-        form = AvailableOfficialsForm(request.POST, instance=oficial)
+        print('El request: ', request.POST)
+        form = AvailableOfficialsForm(request.POST)
         if form.is_valid():
-            form.save()
-            print(form.errors)
-            return redirect('officials')
+            availability = form.save(commit=False)
+            availability.user = request.user
+            availability.save()
+            return redirect('dashboard')
         else:
-            form = AvailableOfficialsForm()
+            print(form.errors)
             
-    context = {'form': form}
+    game_date = dates.first()
+            
+    context = {'form': form, 'game_date': game_date}
     return render(request, 'oficiales/of_disponibilidad.html', context)
-    
-            
-    # error: 'Disponibilidad no ingresada'
-    # if request.method == 'GET':
-    #     return render(request, 'oficiales/of_disponibilidad.html', context)
-    # else:
-    #     try:
-    #         form = AvailableOfficialsForm(request.POST, instance=oficial)
-    #         if form.is_valid():
-    #             new_available = form.save()
-    #             new_available.user = request.user
-    #         return redirect('officials');
-    #     except ValueError:
-    #         print(form.errors)
-    #         return redirect('officials');
-        
-        
-            
 
-
+        
 def updateAvailability(request, pk):
     
     available = Availability.objects.get(id=pk)
     form = AvailableOfficialsForm(instance=available)
     
-    context = {'form': form}
-    if request.method == 'GET':
-        return render(request, 'oficiales/of_disponibilidad.html', context)
-    else:
+    if request.method == 'POST':
         form = AvailableOfficialsForm(request.POST, instance=available)
         if form.is_valid():
-            new_available = form.save()
-            new_available.user = request.user
-        return redirect('officials');
-    # oficial = Oficiales.objects.get(id=id)
-    
-    # available = Availability.objects.get()
-    # form = AvailableOfficialsForm(instance=available)
-    
-    # if request.method == 'POST':
-    #     form = AvailableOfficialsForm(request.POST, instance=available)
-    #     if form.is_valid():
-    #         form.save()
-    #         return redirect('officials')
-        # else:
-        #     print(form.errors)
+            availability = form.save(commit=False)
+            availability.game_date = available.game_date
+            form.save()
+            return redirect('officials')
+        else:
+            print(form.errors)
             
     
-    # return render(request, 'oficiales/of_disponibilidad.html', context);
+    context = {'form': form}
+    return render(request, 'oficiales/of_disponibilidad.html', context);
 
 
 def deleteAvailability(request, pk):
@@ -249,16 +218,33 @@ def designationsPage(request):
     oficiales = Availability.objects.all()
     game1 = Availability.objects.filter(partido1='Si')
     game2 = Availability.objects.filter(partido2='Si')
+    calendar = Calendar.objects.filter(day__gt=datetime.today())
     
-    official_choices = [("", "---------")] + [(availability.oficial.id, str(availability.oficial)) for availability in game1]
+    
+    official_choices = [(availability.oficial.id, str(availability.oficial)) for availability in game1]
+    official_choices.insert(0, ("", "---------"))
     form = PositionsForm(choices=official_choices, initial={'oficial': ''})
-    official_choices2 = [("", "---------")] + [(availability.oficial.id, str(availability.oficial)) for availability in game2]
+    official_choices2 = [(availability.oficial.id, str(availability.oficial)) for availability in game2]
+    official_choices2.insert(0, ("", "---------"))
     form2 = PositionsForm(choices=official_choices2, initial={'oficial': ''})
     
     
-    context = {'oficiales':oficiales, 'game1': game1, 'game2': game2, 'form': form, 'form2': form2}
+    context = {
+        'oficiales':oficiales, 
+        'game1': game1, 
+        'game2': game2, 
+        'form': form, 
+        'form2': form2, 
+        'calendar': calendar
+    }
     return render(request, 'oficiales/of_designaciones.html', context)
 
+
+def sendMail(request):
+    
+    
+    context ={}
+    return render(request, 'oficiales/mail.html', context)
 
 # REVIEWS PAGE
 def reviewPage(request):

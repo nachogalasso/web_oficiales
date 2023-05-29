@@ -4,12 +4,8 @@ from django import forms
 from django.contrib.auth.models import User
 
 # from oficiales.models import NewRecruits
-from .models import Availability, NewRecruits, Oficiales, Reviews
-
-# class CreateUserForm(UserCreationForm):
-#     class Meta:
-#         model = User
-#         fields = ['username', 'email', 'password1', 'password2']
+# from .models import Availability, NewRecruits, Oficiales, Reviews
+from .models import *
         
 
 class NewRecruitsForm(ModelForm):
@@ -18,10 +14,12 @@ class NewRecruitsForm(ModelForm):
         fields = '__all__'
         
 
-class AvailableOfficialsForm(ModelForm):
+class AvailableOfficialsForm(forms.ModelForm):
+    game_date = forms.ModelChoiceField(queryset=Calendar.objects.all(), widget=forms.HiddenInput, required=False)
     class Meta:
         model = Availability
-        fields = '__all__'
+        # fields = '__all__'
+        fields = ['oficial', 'partido1', 'partido2']
         exclude = ['user']
        
 
@@ -38,13 +36,16 @@ class OffialSettingsForm(ModelForm):
         exclude = ['user']
         
 
-
 class PositionsForm(forms.Form):
-    oficial = forms.ChoiceField(choices=[])
+    oficial = forms.ChoiceField(choices=[], required=False)
     
     def __init__(self, *args, **kwargs):
         choices = kwargs.pop('choices')
         super().__init__(*args, **kwargs)
         self.fields['oficial'].choices = choices
         
+class AssignmentForm(ModelForm):
+    models = Assignment
+    fields = '__all__'
+    exclude = ['game']
     

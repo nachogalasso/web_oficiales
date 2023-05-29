@@ -1,0 +1,29 @@
+{% load static %}
+
+{% block content %}
+
+<html>
+<body>
+<!-- Access form data -->
+<form method="post" action="">
+    {% csrf_token %}
+
+    <!-- Game 1 form -->
+    <h2>Game 1:</h2>
+    <!-- Access form fields for Game 1 -->
+    <p>{{ form.oficial.label }} {{form.oficial}}</p>
+    <p>{{ form.oficial.label }}</p>
+    <!-- Add the rest of the form fields for Game 1 -->
+
+    <!-- Game 2 form -->
+    <h2>Game 2:</h2>
+    <!-- Access form fields for Game 2 -->
+    <p>{{ form2.oficial.label }}</p>
+    <p>{{ form2.oficial.label }}</p>
+    <!-- Add the rest of the form fields for Game 2 -->
+
+    <button type="submit">Enviar Designaciones</button>
+</form>
+</body>
+</html>
+{% endblock %}

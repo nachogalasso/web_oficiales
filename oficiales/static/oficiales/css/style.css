@@ -43,6 +43,7 @@ img {
   max-width: 100%;
   display: block;
   height: auto;
+  object-fit: cover;
 }
 
 a {
@@ -523,9 +524,9 @@ body {
 
 @media screen and (min-width: 768px) {
   .container {
-     flex-direction: row;
+     /* flex-direction: row; */
      gap: 2rem;
-     max-width: 100rem;
+     /* max-width: 100rem; */
   }
 }
 /* ===== MAIN END ===== */
@@ -1339,3 +1340,41 @@ input[type=number] {
 
 /* ===== REVIEWS END ===== */
 
+/* === PRUEBA === */
+.prueba {
+  display: flex;
+  /* flex-direction: column; */
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.img-prueba {
+  flex: 0 0 calc(50% - 1rem);
+  position: relative;
+  background-image: url('../images/oficials4.webp');
+  width: 70rem;
+  height: 50rem;
+  -webkit-mask-image: linear-gradient(315deg, transparent 18%, var(--intermediateBlue) 42%);
+  clip-path: polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%);
+  background-size: cover;
+} 
+
+.img-prueba2 {
+  flex: 0 0 calc(50% - 1rem);
+  position: relative;
+  background-image: url('../images/oficials4.webp');
+  width: 70rem;
+  height: 50rem;
+  -webkit-mask-image: linear-gradient(315deg, transparent 18%, var(--intermediateBlue) 42%);
+  clip-path: polygon(0 0, 75% 0, 100% 100%, 25% 100%);
+  background-size: cover;
+}
+
+.texto-prueba h2 {
+  font-size: 3rem;
+  margin-bottom: 1.5rem;
+}
+
+.texto-prueba p {
+  font-size: 2rem;
+}

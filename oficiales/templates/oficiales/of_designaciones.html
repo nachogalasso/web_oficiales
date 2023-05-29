@@ -40,7 +40,10 @@
             {% csrf_token %}
             <div class="game">
                 <table class="game-table">
-                    <caption>Partido</caption>
+                    <p>Partido {{calendar.0.horario}}</p>
+                    <p>{{calendar.0}}</p>
+                    <p>{{calendar.0.local}} vs {{calendar.0.visitante}}</p>
+
                     <thead>
                         <tr>
                             <th>Posicion</th>
@@ -83,7 +86,10 @@
 
             <div class="game">
                 <table class="game-table">
-                    <caption>Partido</caption>
+                    <p>Partido {{calendar.1.horario}}</p>
+                    <p>{{calendar.1}}</p>
+                    <p>{{calendar.1.local}} vs {{calendar.1.visitante}}</p>
+
                     <thead>
                         <tr>
                             <th>Posicion</th>

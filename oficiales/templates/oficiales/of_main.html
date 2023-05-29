@@ -54,7 +54,7 @@
     <main class="container">
 
         <!-- PHOTO SLIDE START -->
-        <section class="slide-container">
+        {% comment %} <section class="slide-container">
           
           <div class="loader"></div>
           <figure class="slider box show">
@@ -67,19 +67,20 @@
             <img class="slide" src="{% static 'oficiales/images/oficials.webp' %}" alt="Imagen_oficiales3">
           </figure>
           
-      </section>
+      </section> {% endcomment %}
       <!-- PHOTO SLIDE END -->
     
       <!-- INFORMATION START -->
+      {% comment %}
       <section class="accordion__info-container">
         <button class="accordion__info-bar" id="slide-1">Sobre Nosotros</button>
         <div class="info-bar-panel">
           <p>Somos el cuerpo arbitral de Football Americano Argentina, cubrimos las competiciones de Football Tackle y de Flag Football de FABA (Football Americano Buenos Aires), a jugarse entre los meses de Marzo a Noviembre. Utilizamos los reglamentos de IFAF, puedes descargar la última actualización en los siguientes enlaces:
           </p>
-          {% comment %} <div class="rulebook-links">
+           <div class="rulebook-links">
             <a href="{% static 'oficiales/files/FlagRules2021.pdf' %}" class="rulebook" title="Descargar Flag Football" download>Flag Football <i class="fa-regular fa-file-pdf"></i></a>
             <a href="{% static 'oficiales/files/ifafrules2023.pdf' %}" class="rulebook" title="Descargar Football Tackle" download>Football Tackle <i class="fa-regular fa-file-pdf"></i></a>
-          </div> {% endcomment %}
+          </div> 
         </div>
         <button class="accordion__info-bar" id="slide-2">Torneos y Equipos</button>
         <div class="info-bar-panel">
@@ -98,16 +99,63 @@
                   Las tazonizas, partidos entre los seleccionados de Buenos Aires, Córdoba y Rosario.
                 </li>
             </ul>
-         
         </div>
         <button class="accordion__info-bar" id="slide-3">Inscripción</button>
         <div class="info-bar-panel">
           <p>Si estás interesado en formar parte del cuerpo arbitral te invitamos a realizar el curso de oficiales, dale click al enlace de abajo y completa el formulario de inscripción:</p>
           <a href="{% url 'inscForm' %}" target="_blank" rel="noreferrer noopener" title="Ir al formulario de inscripción" class="form-link"> -> Formulario Inscripción <- </a>
         </div>
+         
+      </section> {% endcomment %}
     
-      </section>
       <!-- INFORMATION END -->
+      <section class="prueba">
+        <div class="img-prueba">
+          {% comment %} <img src="{% static 'oficiales/images/oficials4.webp' %}" alt=""> {% endcomment %}
+        </div>
+        <div class="texto-prueba">
+          <h2>Sobre Nosotros</h2>
+          <p>Somos el cuerpo arbitral de Football Americano Argentina, cubrimos las competiciones de Football Tackle y de Flag Football de FABA (Football Americano Buenos Aires), a jugarse entre los meses de Marzo a Noviembre. Utilizamos los reglamentos de IFAF, puedes descargar la última actualización en los siguientes enlaces:</p>
+        </div>
+      </section>
+    
+      
+      <section class="prueba">
+        <div class="texto-prueba">
+          <h2>Torneos y Equipos</h2>
+          <div class="">
+            <p>La competición anual se compone de: </p>
+              <ul>
+                  <li class="panel-item">
+                    2 Torneos de Flag Mayores
+                  </li>
+                  <li class="panel-item">
+                    1 Torneo de Tackle Mayores.
+                  </li>
+                  <li class="panel-item">
+                    El Torneo de FABA se compone de 6 equipos: Corsarios, Cruzados, Jabalies, Legionarios, Osos Polares y Tiburones.
+                  </li>
+                  <li class="panel-item">
+                    Las tazonizas, partidos entre los seleccionados de Buenos Aires, Córdoba y Rosario.
+                  </li>
+              </ul>
+          </div>
+        </div>
+        <div class="img-prueba2">
+          {% comment %} <img src="{% static 'oficiales/images/oficials4.webp' %}" alt=""> {% endcomment %}
+        </div>
+      </section>
+
+      <section class="prueba">
+        <div class="img-prueba">
+          {% comment %} <img src="{% static 'oficiales/images/oficials4.webp' %}" alt=""> {% endcomment %}
+        </div>
+        <div class="texto-prueba">
+          <h2>Inscripción</h2>
+          <p>Si estás interesado en formar parte del cuerpo arbitral te invitamos a realizar el curso de oficiales, dale click al enlace de abajo y completa el formulario de inscripción:</p>
+          <a href="{% url 'inscForm' %}" target="_blank" rel="noreferrer noopener" title="Ir al formulario de inscripción" class="form-link"> -> Formulario Inscripción <- </a>
+        </div>
+      </section>
     
       </main>
     

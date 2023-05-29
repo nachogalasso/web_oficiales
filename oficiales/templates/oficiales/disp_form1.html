@@ -1,4 +1,5 @@
 <h3>Mayo / Junio</h3>
+
 <p>fecha 1 - 20 de Mayo</p>
 <form action="" method="POST" class="disp_form">
     {% csrf_token %}
@@ -13,6 +14,9 @@
             
         </label>
     </div>
+
+    {{ form.game_date.as_hidden }}
+
     <div class="disp_form-games">
         <p>2do partido -15.30hs</p>
         <label for="partido2">CRU vs TIB
@@ -20,6 +24,7 @@
             
         </label>
     </div>
+   
     <input type="submit" value="Ok"class="disp-btn">
 </form>
 

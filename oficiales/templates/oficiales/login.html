@@ -46,9 +46,9 @@
          <p id="messages">{{message}}</p>
       {% endfor %}
       <!-- FORM END -->
-      {% comment %} <section class="relog">
-        <p>If you don´t have an account you can <a href="">Register</a></p>
-     </section> {% endcomment %}
+      <section class="relog">
+        <p>Si olvidaste tu password puedes resetearla<a href="{% url 'password_reset' %}">AQUI</a></p>
+     </section>
 
    </main>
    <!-- MAIN END -->
