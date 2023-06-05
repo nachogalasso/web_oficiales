@@ -1,96 +1,120 @@
 <h3>Agosto</h3>
 <p>fecha 9 - 05 de Agosto</p>
-<form action="" method="POST" class="disp_form">
-    {% csrf_token %}
+{% if date_strings.16 > today %}
     
-    <label for="oficial-name">
-        {{form.oficial}}
-    </label>
-    <div class="disp_form-games">
-        <p>1er partido - 13hs</p>
-        <label for="partido1">LEG vs JAB
-            {{form.partido1}}
-            
+    <form action="" method="POST" class="disp_form">
+        {% csrf_token %}
+        
+        <label for="oficial-name">
+            {{form.oficial}}
         </label>
-    </div>
-    <div class="disp_form-games">
-        <p>2do partido -15.30hs</p>
-        <label for="partido2">CRU vs TIB
-            {{form.partido2}}
-            
-        </label>
-    </div>
-    <input type="submit" value="Ok"class="disp-btn">
-</form>
+        <div class="disp_form-games">
+            <p>1er partido - 13hs</p>
+            <label for="partido1">LEG vs JAB
+                {{form.partido1}}
+            </label>
+        </div>
+
+        {{ form.game_date.as_hidden }}
+
+        <div class="disp_form-games">
+            <p>2do partido -15.30hs</p>
+            <label for="partido2">CRU vs TIB
+                {{form.partido2}}
+            </label>
+        </div>
+        <input type="submit" value="Ok"class="disp-btn">
+    </form>
+{% else %}
+    <h3 class="form-message">Fecha completada</h3>
+{% endif %}
 
 <p>fecha 10 - 12 de Agosto</p>
-<form action="" method="POST" class="disp_form">
-    {% csrf_token %}
-    
-    <label for="oficial-name">
-        {{form.oficial}}
-    </label>
-    <div class="disp_form-games">
-        <p>1er partido - 13hs</p>
-        <label for="partido1">LEG vs JAB
-            {{form.partido1}}
-            
+{% if date_strings.18 > today %}
+   
+    <form action="" method="POST" class="disp_form">
+        {% csrf_token %}
+        
+        <label for="oficial-name">
+            {{form.oficial}}
         </label>
-    </div>
-    <div class="disp_form-games">
-        <p>2do partido -15.30hs</p>
-        <label for="partido2">CRU vs TIB
-            {{form.partido2}}
-            
-        </label>
-    </div>
-    <input type="submit" value="Ok"class="disp-btn">
-</form>
+        <div class="disp_form-games">
+            <p>1er partido - 13hs</p>
+            <label for="partido1">LEG vs JAB
+                {{form.partido1}}
+            </label>
+        </div>
+
+        {{ form.game_date.as_hidden }}
+
+        <div class="disp_form-games">
+            <p>2do partido -15.30hs</p>
+            <label for="partido2">CRU vs TIB
+                {{form.partido2}}
+            </label>
+        </div>
+        <input type="submit" value="Ok"class="disp-btn">
+    </form>
+{% else %}
+    <h3 class="form-message">Fecha completada</h3>
+{% endif %}
 
 <p>fecha 11 - 19 de Agosto</p>
-<form action="" method="POST" class="disp_form">
-    {% csrf_token %}
+{% if date_strings.20 > today %}
     
-    <label for="oficial-name">
-        {{form.oficial}}
-    </label>
-    <div class="disp_form-games">
-        <p>1er partido - 13hs</p>
-        <label for="partido1">LEG vs JAB
-            {{form.partido1}}
-            
+    <form action="" method="POST" class="disp_form">
+        {% csrf_token %}
+        
+        <label for="oficial-name">
+            {{form.oficial}}
         </label>
-    </div>
-    <div class="disp_form-games">
-        <p>2do partido -15.30hs</p>
-        <label for="partido2">CRU vs TIB
-            {{form.partido2}}
-            
-        </label>
-    </div>
-    <input type="submit" value="Ok"class="disp-btn">
-</form>
+        <div class="disp_form-games">
+            <p>1er partido - 13hs</p>
+            <label for="partido1">LEG vs JAB
+                {{form.partido1}}
+            </label>
+        </div>
+
+        {{ form.game_date.as_hidden }}
+
+        <div class="disp_form-games">
+            <p>2do partido -15.30hs</p>
+            <label for="partido2">CRU vs TIB
+                {{form.partido2}}
+            </label>
+        </div>
+        <input type="submit" value="Ok"class="disp-btn">
+    </form>
+{% else %}
+    <h3 class="form-message">Fecha completada</h3>
+{% endif %}
 
 <p>fecha 12 - 26 de Agosto</p>
-<form action="" method="POST" class="disp_form">
-    {% csrf_token %}
+{% if date_strings.22 > today %}
     
-    <label for="oficial-name">
-        {{form.oficial}}
-    </label>
-    <div class="disp_form-games">
-        <p>1er partido - 13hs</p>
-        <label for="partido1">LEG vs JAB
-            {{form.partido1}}
-            
+    <form action="" method="POST" class="disp_form">
+        {% csrf_token %}
+        
+        <label for="oficial-name">
+            {{form.oficial}}
         </label>
-    </div>
-    <div class="disp_form-games">
-        <p>2do partido -15.30hs</p>
-        <label for="partido2">CRU vs TIB
-            {{form.partido2}}
-            
-        </label>
-    </div>
-    <input type="submit" value="Ok"class="disp-btn">
-</form>
+        <div class="disp_form-games">
+            <p>1er partido - 13hs</p>
+            <label for="partido1">LEG vs JAB
+                {{form.partido1}}
+            </label>
+        </div>
+
+        {{ form.game_date.as_hidden }}
+
+        <div class="disp_form-games">
+            <p>2do partido -15.30hs</p>
+            <label for="partido2">CRU vs TIB
+                {{form.partido2}}
+            </label>
+        </div>
+        <input type="submit" value="Ok"class="disp-btn">
+    </form>
+{% else %}
+    <h3 class="form-message">Fecha completada</h3>
+{% endif %}
