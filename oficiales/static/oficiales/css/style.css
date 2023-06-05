@@ -12,6 +12,7 @@
   --intermediateBlue: rgba(59,152,205,1);
   --lightBlue: rgba(119,181,216,1);
   --mainWhite: rgba(238,238,238,1);
+  --alert: rgba(255,0,0,.8);
   /* miscellaneous */
   --mainSpacing: .1rem;
   --mainTransition: all 0.3s linear;  
@@ -970,6 +971,12 @@ input[type=number] {
   background-color: var(--lightBlue);
   border: .1rem solid var(--mainBlue);
   color: var(--mainBlue);
+}
+
+.form-message {
+  color: var(--alert);
+  font-size: 2rem;
+  margin: 2rem;
 }
 
 @media screen and (min-width: 1024px) {

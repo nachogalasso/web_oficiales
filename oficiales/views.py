@@ -6,7 +6,7 @@ from django.template import loader
 # Error messages
 from django.contrib import messages
 # Date for filter
-from datetime import datetime
+from datetime import datetime, date
 # To send email and render data
 from django.core.mail import send_mail
 from django.template.loader import render_to_string
@@ -118,6 +118,10 @@ def availabilityPage(request, pk):
     oficial = Oficiales.objects.get(id=pk)
     dates = Calendar.objects.all()
     form = AvailableOfficialsForm(initial={'oficial': oficial})
+    
+    game_date = dates.first()
+    today = datetime.now().strftime("%Y %m %d")
+    date_strings = [str(date.day) for date in dates]
  
     if request.method == 'POST':
         print('El request: ', request.POST)
@@ -129,10 +133,12 @@ def availabilityPage(request, pk):
             return redirect('dashboard')
         else:
             print(form.errors)
+            form = AvailableOfficialsForm(initial={'oficial': oficial})
             
-    game_date = dates.first()
+    print(today)
+    print(date_strings)
             
-    context = {'form': form, 'game_date': game_date}
+    context = {'form': form, 'game_date': game_date, 'date_strings': date_strings, 'today': today}
     return render(request, 'oficiales/of_disponibilidad.html', context)
 
         
